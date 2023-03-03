@@ -62,6 +62,9 @@ l80 : scraper 정의
 Scraper클래스로 nih 인스턴스 만듬
 _get_model 메소드 실행 -> _handling_date메소드 실행 -> NIHct 모델 리턴함 (클래스로 선언된 모델 임포트해서 갖고옴)
 
+Namespace(start_date='lastupdatedate', end_date='today', save='no', insert='no', date_parameter=0, cris_start=0, cris_end=None, cris_lang='K', model='nih', email='no')
+
+cris, mfds -> yaml에서 
 
 
 
