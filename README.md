@@ -107,12 +107,25 @@ nih 접속하여 회사DB와 비교해보았음. 가장최신화된 자료가 NC
 exact_tree 코드  556~690 
   
 https://www.clinicaltrials.gov/ct2/home
+  
+```
+  
 ![스크린샷 2023-03-06 160019](https://user-images.githubusercontent.com/126745832/223040633-c0b674cc-ac1f-47f8-ab99-f5087f376cc2.png)
 ![스크린샷 2023-03-06 160028](https://user-images.githubusercontent.com/126745832/223040690-9e20b7f5-e17a-4cf8-a415-63d850956a90.png)
+  
+```
 위와 같이 
 /home/jh_park/test/_test/models/nihct/utils/info.py 코드에 적혀진대로 4개가 DB에도 저장된것.
 ```
 
+![스크린샷 2023-03-06 160605](https://user-images.githubusercontent.com/126745832/223041521-9cb969b8-3bbf-43ce-9add-3deb3032159f.png)
+```
+각각은 위와 같이 정의됨.
+DB에서 column의 이름임.
+```
+  
 </details>
+
+
 
 
