@@ -96,9 +96,23 @@ get방식으로 api가져오기 -> 스키마 컴페어 부분부터 다시보기
 
 ```
 import ipdb; ipdb.set_trace() 앞으로 디버깅은 이거로 하자
-로컬에 DB설치하는법을 따로 배워야함...                                 
-                                 
+로컬에 DB설치하는법을 따로 배워야함...     
+tqdm 이라는 신기한 라이브러리를 배웠음
+  
+api를 통해 정보를 받아올수있다.<br>
+Headers : fakeheaders -> 크롤링시 우회용
 
+nih 접속하여 회사DB와 비교해보았음. 가장최신화된 자료가 NCT05754515 였는데,
+회사DB에 contacts 정보가 정확히 입력되어있었음. 
+exact_tree 코드  556~690 
+  
+https://www.clinicaltrials.gov/ct2/home
+![스크린샷 2023-03-06 160019](https://user-images.githubusercontent.com/126745832/223040633-c0b674cc-ac1f-47f8-ab99-f5087f376cc2.png)
+![스크린샷 2023-03-06 160028](https://user-images.githubusercontent.com/126745832/223040690-9e20b7f5-e17a-4cf8-a415-63d850956a90.png)
+위와 같이 
+/home/jh_park/test/_test/models/nihct/utils/info.py 코드에 적혀진대로 4개가 DB에도 저장된것.
 ```
 
 </details>
+
+
