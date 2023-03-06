@@ -122,6 +122,8 @@ https://www.clinicaltrials.gov/ct2/home
 ```
 각각은 위와 같이 정의됨.
 DB에서 column의 이름임. > RDB cloumn scheme
+
+compare scheme > crawl data > insert to DB
 ```
   
 </details>
