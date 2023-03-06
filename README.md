@@ -90,3 +90,15 @@ get방식으로 api가져오기 -> 스키마 컴페어 부분부터 다시보기
 ```
 
 </details>
+
+<details>
+<summary>20230306</summary>
+
+```
+import ipdb; ipdb.set_trace() 앞으로 디버깅은 이거로 하자
+로컬에 DB설치하는법을 따로 배워야함...                                 
+                                 
+
+```
+
+</details>
