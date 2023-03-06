@@ -99,7 +99,7 @@ import ipdb; ipdb.set_trace() 앞으로 디버깅은 이거로 하자
 로컬에 DB설치하는법을 따로 배워야함...     
 tqdm 이라는 신기한 라이브러리를 배웠음
   
-api를 통해 정보를 받아올수있다.<br>
+api를 통해 정보를 받아올수있다.
 Headers : fakeheaders -> 크롤링시 우회용
 
 nih 접속하여 회사DB와 비교해보았음. 가장최신화된 자료가 NCT05754515 였는데,
@@ -121,7 +121,7 @@ https://www.clinicaltrials.gov/ct2/home
 ![스크린샷 2023-03-06 160605](https://user-images.githubusercontent.com/126745832/223041521-9cb969b8-3bbf-43ce-9add-3deb3032159f.png)
 ```
 각각은 위와 같이 정의됨.
-DB에서 column의 이름임.
+DB에서 column의 이름임. > RDB cloumn scheme
 ```
   
 </details>
