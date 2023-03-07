@@ -130,6 +130,42 @@ __repr__ : Node만들때(make tree) 사용했음.
   
 </details>
 
+<details>
+<summary>20230307</summary>
+
+```
+__str__, __repr__ 차이점 보기
+  
+>>> import datetime
+>>> a = datetime.datetime(2017, 9, 27)
+>>> str(a)
+'2017-09-27 00:00:00'
+>>> repr(a)
+'datetime.datetime(2017, 9, 27, 0, 0)'
+
+  
+  
+크롤링과정 
+
+NStudiesFound : 업데이트해줘야하는 데이터
+trial/100 만큼 iteration -> full_study_list 채움
+make tree를 이용하여 트리구조로 field_list를 만듬
+23개의 element를 갖고있음 
+field_list[0] 는 이중리스트형태로 각각의 요소가 그에 해당되는 모듈의 정보를 갖고있음.
+예시 : [ ['NCT05756881', Node (Level 0) : [struct] IdentificationModule / None // num of child of this node : 5],
+         ['NCT05756868', Node (Level 0) : [struct] IdentificationModule / None // num of child of this node : 5],
+         ['NCT05756855', Node (Level 0) : [struct] IdentificationModule / None // num of child of this node : 6] ... ]
+  
+이를 바탕으로 rows를 만들면
+
+[ ['NCT00001971', 'Evaluation of Patients With Liver Disease', 'Evaluation of Patients With Liver Disease', 'National Institutes of Health Clinical Center (CC)', '910214', 'NIH', None, None, None, None, '2023-03-07 10:18:13', '2023-03-07 10:18:13'], 
+  ['NCT00001481', 'The Role of Hormones in Postpartum Mood Disorders', 'An Endocrine Model for Postpartum Mood Disorders', 'National Institutes of Health Clinical Center (CC)', '950097', 'NIH', None, None, None, None, '2023-03-07 10:18:13', '2023-03-07 10:18:13'], 
+  ['NCT00001160', 'Studies on Tumors of the Thyroid', 'Studies on Thyroid Nodules and Thyroid Cancer', 'National Institutes of Health Clinical Center (CC)', '770096', 'NIH', None, None, None, None, '2023-03-07 10:18:13', '2023-03-07 10:18:13'] ... ]  
+
+
+```
+  
+</details>
 
 
 
