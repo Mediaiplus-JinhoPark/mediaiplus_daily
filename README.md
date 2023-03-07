@@ -164,7 +164,27 @@ field_list[0] 는 이중리스트형태로 각각의 요소가 그에 해당되�
 
   
 cris 데이터 가져오기 
+  
+그전에 질문
 
+1. DB에 중복 데이터가 존재함 
+  https://cris.nih.go.kr/cris/search/detailSearch.do/?seq=14743&search_page=L&search_lang=K
+  https://cris.nih.go.kr/cris/search/detailSearch.do/?seq=15988&search_page=L&search_lang=K
+  -> cris가 버전관리를 안해서 생기는 문제였음. 나중에 최신의 버전 (높은 key)을 유지하자
+2. PRE20190408-003 ??
+  pre로 key로만 들어갈수있음
+3. selenium.common.exceptions.WebDriverException: Message: 'chromedriver' executable may have wrong permissions. Please see https://chromedriver.chromium.org/home
+  해결 : 크롬드라이버 깔아서 .env.yml 변
+4. 링크접속불가 
+  https://cris.nih.go.kr/cris/resultsearch/resultSearch.do/
+5. 디비에 널값이 있는이유? 
+  
+ 
+먼저 갱신일을 기준으로 검색을 함.
+  
+  
+  
+  
 ```
   
 </details>
