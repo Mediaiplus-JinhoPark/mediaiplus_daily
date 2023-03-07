@@ -162,6 +162,8 @@ field_list[0] 는 이중리스트형태로 각각의 요소가 그에 해당되�
   ['NCT00001481', 'The Role of Hormones in Postpartum Mood Disorders', 'An Endocrine Model for Postpartum Mood Disorders', 'National Institutes of Health Clinical Center (CC)', '950097', 'NIH', None, None, None, None, '2023-03-07 10:18:13', '2023-03-07 10:18:13'], 
   ['NCT00001160', 'Studies on Tumors of the Thyroid', 'Studies on Thyroid Nodules and Thyroid Cancer', 'National Institutes of Health Clinical Center (CC)', '770096', 'NIH', None, None, None, None, '2023-03-07 10:18:13', '2023-03-07 10:18:13'] ... ]  
 
+  
+cris 데이터 가져오기 
 
 ```
   
