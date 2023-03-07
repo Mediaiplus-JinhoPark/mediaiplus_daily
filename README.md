@@ -178,11 +178,13 @@ cris 데이터 가져오기
 4. 링크접속불가 
   https://cris.nih.go.kr/cris/resultsearch/resultSearch.do/
 5. 디비에 널값이 있는이유? 
-  
+
+
+크롤링하는법  
  
 먼저 갱신일을 기준으로 검색을 함.
   
-  
+parsing_kor_doc 부터 다시 확인하기. 
   
   
 ```
