@@ -214,7 +214,7 @@ cris : 최신업데이트 부터 오늘날짜로 받아오기
 
 2. dev_fe_ctx_cris_ct 테이블의 용도?
 
-git clone 하고 해야하는거
+git clone 하고 해야하는거 
 
 1. .env 
 2. 크롬드라이버 받기 
