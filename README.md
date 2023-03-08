@@ -226,6 +226,8 @@ ctrl + shift + end : 선택하면서 페이지 맨끝으로
 ctrl + arrow : 커서 단어 단위로 옮기기 
 ctrl + shift + arrow : 단어단위 선택하면서 맨끝으로
 
+crtl + alt : 다중택
+
 DB -> mediaiplus -> DB name 'RAW'
 
 cris : 최신업데이트 부터 오늘날짜로 받아오기 
