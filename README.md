@@ -109,16 +109,27 @@ exact_tree 코드  556~690
 https://www.clinicaltrials.gov/ct2/home
   
 ```
-  
-![스크린샷 2023-03-06 160019](https://user-images.githubusercontent.com/126745832/223040633-c0b674cc-ac1f-47f8-ab99-f5087f376cc2.png)
-![스크린샷 2023-03-06 160028](https://user-images.githubusercontent.com/126745832/223040690-9e20b7f5-e17a-4cf8-a415-63d850956a90.png)
+<img
+     src="https://user-images.githubusercontent.com/126745832/223040633-c0b674cc-ac1f-47f8-ab99-f5087f376cc2.png"
+     width=300
+     height=100
+/>
+<img
+     src="https://user-images.githubusercontent.com/126745832/223040690-9e20b7f5-e17a-4cf8-a415-63d850956a90.png"
+     width=300
+     height=100
+/>
   
 ```
 위와 같이 
 /home/jh_park/test/_test/models/nihct/utils/info.py 코드에 적혀진대로 4개가 DB에도 저장된것.
 ```
+<img
+     src="https://user-images.githubusercontent.com/126745832/223041521-9cb969b8-3bbf-43ce-9add-3deb3032159f.png"
+     width=300
+     height=300
+/>
 
-![스크린샷 2023-03-06 160605](https://user-images.githubusercontent.com/126745832/223041521-9cb969b8-3bbf-43ce-9add-3deb3032159f.png)
 ```
 각각은 위와 같이 정의됨.
 DB에서 column의 이름임. > RDB cloumn scheme
@@ -213,21 +224,51 @@ cris : 최신업데이트 부터 오늘날짜로 받아오기
 1. cris 커맨드 입력받을때 인덱스를 왜입력받는가?
 
 2. dev_fe_ctx_cris_ct 테이블의 용도?
-
+```
+```
 git clone 하고 해야하는거 !!!
 
 1. .env 
 2. 크롬드라이버 받기 
-
+```
+```
 CRIS 가장 큰 문제점 : api도없고, 계속해서 사이트가 변경됨 -> 지금만들어도 나중에 cris가 데이터를 게시하는 방법이 달라지면 다시 업로드 해야할 필요가 있음. -> 일단은 현재 버전으로 만들어봐야함.
 
 현상황 : cris_ct_result 데이터들 12/16을 마지막으로 업데이트가 안됨.
+현재(230308 16:06) 기준 연구결과가 등록된 데이터들은 총 551건이 검색되는데, 막상 결과가 등록이 안된경우가 많음
 
+결과등록이 안된경우 
+```
 
+<img
+     src="https://user-images.githubusercontent.com/126745832/223645866-4067dd5f-441d-4647-95e4-8868149798c0.png"
+     width=300
+     height=300
+/>
+<img
+     src="https://user-images.githubusercontent.com/126745832/223645982-f809fdaa-e813-4611-9af6-c2d701a3897c.png"
+     width=300
+     height=300
+/>
+
+  
+```
+결과등록이 잘된경우
+```  
+<img
+     src="https://user-images.githubusercontent.com/126745832/223645598-a3332d69-3451-441b-9550-bf9e7cb93345.png"
+     width=300
+     height=300
+/>
+
+```
 내일 확인해봐야하는거 : 3/7 기준 6개가 업데이트됨, 그러나 DB엔 5개만 업데이트됨 (16157 누락) -> 3/7에 정기적으로 스크랩할때, 스크랩하기 전에 5개가 업데이트 된것이고, 나머지 하나는 스크랩 이후 업데이트된 것이었음. 
 
 
 ```
 </details>
+
+
+
 
 
