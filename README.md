@@ -191,5 +191,36 @@ parsing_kor_doc 부터 다시 확인하기.
   
 </details>
 
+<details>
+<summary>20230308</summary>
+
+```
+
+vscode 단축키
+
+ctrl + end : 커서 맨끝으로
+shift + end : 선택하면서 행의 맨끝으로
+ctrl + shift + end : 선택하면서 페이지 맨끝으로 
+
+ctrl + arrow : 커서 단어 단위로 옮기기 
+ctrl + shift + arrow : 단어단위 선택하면서 맨끝으로
+
+DB -> mediaiplus -> DB name 'RAW'
+
+cris : 최신업데이트 부터 오늘날짜로 받아오기 
+
+질문
+1. cris 커맨드 입력받을때 인덱스를 왜입력받는가?
+
+2. dev_fe_ctx_cris_ct 테이블의 용도?
+
+git clone 하고 해야하는거
+
+1. .env 
+2. 크롬드라이버 받기 
+
+
+```
+</details>
 
 
