@@ -316,9 +316,44 @@ my daily report
   ct_list를 토대로 ct_result_list를 만들자.
   
   ct_list 구조 파악하기.
+  
   ct_list는 길이가 업데이트해야하는 데이터의 갯수 만큼 가진 리스트임.
   예를들어 -start_date=2023-03-01 의 옵션을 준경우, 3월1일부터 오늘날짜(today)까지의 새로 갱신해야할 데이터를 수집하여 저장함
   이때 ct_list의 각각의 요소가 갱신된 데이터의 정보를 담고있음.
+  ```
+  ```
+  예를들면 len(ct_list)=3 인경우, 갱신해야할 데이터가 3개가 있는것임.
+  각 데이터의 정보를 dictionary 로 만들어줌 
+  
+  ct_list.append({
+                'seq': i,
+                'status': date_list,
+                'content': table_dict,
+                'url': f'{self.base_url}?seq={i}&search_page=L&search_lang={self.language}',
+            })
+  그렇다면 각각의 키에 해당하는 밸류값들을 보자
+  ct_list[0]['seq'] = '24303'
+  ct_list[0]['status'] = ['등록', '2022/10/25', '2022/12/23', '2023/03/08']
+  
+  ct_list[0]['content'] 는 defaultdict 자료형임.
+  
+  ct_list[0]['content'].keys() = dict_keys(['1. 연구개요', '2. 임상연구윤리심의', '3. 연구자', '4. 연구현황', '5. 연구비지원기관', '6. 연구책임기관', '7. 연구요약', '8. 연구설계', '9. 대상자선정기준', '10. 결과변수', '11. 연구결과 및 발표', '12. 연구데이터 공유(익명화된 연구대상자 데이터)'])
+  또한 이 key들의 해당하는 value 또한 defaultdict 임
+  
+  예를들면 ct_list[0]['content']['1. 연구개요'] 는 아래와 같이 구성됨. 각각의 key들은 대체로 cris 자료 테이블의 row : contents임
+  
+  defaultdict(None, {'CRIS등록번호': 'KCT0008025', '연구고유번호': 'NCC2022-0319', '요약제목': 'MET 또는 EGFR 단백질이 과발현된 전이성 위암의 3차이상 요법으로서의 CKD-702/이리노테칸 1b/2상 임상시험', '연구제목': 'MET 또는 EGFR 단백질이 과발현된 전이성 위암의 3차이상 요법으로서의 CKD-702/이리노테칸 1b/2상 임상시험', '연구약어명': 'CKD-702', '식약처규제연구': '예(Yes)', 'IND/IDE Protocol 여부': '아니오(No)', '타등록시스템 등록여부': '아니오(No)', '임상연구 요양급여적용 신청 여부': '신청 중(Submitted pending)'})
+  
+  ct_list[0]['url'] = 'https://cris.nih.go.kr/cris/search/detailSearch.do/?seq=24303&search_page=L&search_lang=K'
+
+  
+  만약 데이터의 개수가 가변적이라면, 리스트로 만들어줌 -> 하나의 cris_seq가 아니라 여러개의 cris_seq가 있는것, 
+  PRIMARY KEY를 하나더잡아줌 즉 예를들어 cris_seq = 24303의 데이터중 연구참여기관이 두개인경우, SRSID라는 PRIMARY KEY를 잡아주는것. 
+  <img
+     src="https://user-images.githubusercontent.com/126745832/223931817-b00a1bc7-93fc-4871-8ec7-e04dcf821f05.png"
+     width=500
+     height=50
+  />
   
   ```
 </details>
