@@ -402,6 +402,7 @@ my daily report
 <details>
 
 <summary>20230313</summary>
+  
 ```
 연구결과 등록으로 검색 -> 1. 에러페이지가 나오는지 확인 -> 에러나면 그대로 리턴
 2. 페이지에 접속을 해도, 실제 데이터가 없을수있음.
@@ -414,8 +415,14 @@ my daily report
     연구결과 등록된 데이터들을 볼때, start date를 비워둔 데이터의 개수와 2010-01-01, 즉 cris홈페이지에서 제공하는 초기값을 주면 데이터 개수값이 달라짐.
     
 
-
-구조분석
+html구조
+연구정보, 연구결과 상이함
+main div -> print div 
+내일 물어볼거 : date_list는 필요없는건가?
+  
+  
+  
+결과구조분석
 1. Participant Flow
 모집상세설명
 배정 전 상세설명
@@ -423,11 +430,12 @@ my daily report
 그다음 기간이나옴 -> 주로 기간은 한개존재함.
 
 
+크롤링 과정
 만약 K인경우, E인경우 나눠서
 각각 parsing_result_kor_doc(resp), parsing_result_eng_doc(resp) 을 호출함.
 
 ```
 
-<details>
+</details>
 
-<details>
+</details>
