@@ -437,5 +437,53 @@ main div -> print div
 ```
 
 </details>
+  
+<details>
+
+<summary>20230314</summary>
+  
+```
+연구결과 등록으로 검색 -> 1. 에러페이지가 나오는지 확인 -> 에러나면 그대로 리턴
+2. 페이지에 접속을 해도, 실제 데이터가 없을수있음.
+3. 국문/영문으로 할지, 각각 페이지에서 크롤링 할지 정하기 -> 물어봐야 할듯 근데 KCT0008257 를 보면 각각 따로 하는게 좋을듯함.
+
+study details/study results를 크롤링해와야함 -> 먼저 검색조건에 맞는 날짜에 갱신된 데이터에 한해서 크롤링 그 후 결과가 등록된 데이터를 크롤링
+get max update 는, study details를 크롤링할때 받아와지므로 자동으로 업데이트됨.
+  결과 등록된 데이터는 없는 경우가 많음
+  
+  표안에 표 : 하나의 tr내에 두개의 th
+  원래대로라면 [[th],[td]] 이지만 th가 두개라면 [[th,th],[td]]가 됨
+  td내에 pre가 되어있을수도있다... -> ().text 사용하면 똑같이나옴
+  
+  먼저 results를 크게 4개로 분리, 그 후 각각을 다시 테이블로 분리, 그러면 그 각각의 테이블들은 tr을 갖는다.
+  각 tr을 th_list, td_list로 분리한다. 그후 [th_list, td_list]로 만들어 캡션과함께 테이블딕셔너리에 해당하는 value에 append해준다.
+  
+  tr,td를 분리할때, colspan rowspan을 잘 보자 -> 
+  rowspan = 2 의 의미? 두개의 행을 차지함.
+  colspan = 2 의 의미? 두개의 열을 차지함 즉 세분화된 데이터가 있는경우, colspan, rowspan이 사용
+  
+  코드에 주석으로 남겨둠.
+  
+  
+  Participant Flow 구조 >>>
+  하나의 시퀀스에 여러개의 피리어드
+  각각 피리어드 내에는 여러개의 암그룹이 있을 수 있음 
+  
+  현재 Participant Flow 관련 메소드:
+  cris_ct_result_participant_flow_desc -> 수정필요 x
+  cris_ct_result_participant_flow_list_desc -> 하나의 시퀀스에 여러개의 피리어드를 PFSId로 구분해서 넣어놈. 스키마는 단위, 코멘트
+  cris_ct_result_participant_flow_arm_group -> 암그룹당 정보, 탈락관련정보누락됨
+  cris_ct_result_participant_flow_arm_group_research_step -> 마일스톤은 암그룹당 없을수도있거나 여러개임
+  
+  -> 탈락관련데이터가 아예 없다!
+  
+  
+  
+  
+  
+api로 받아오기????
+```
+
+</details>
 
 </details>
