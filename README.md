@@ -486,4 +486,35 @@ api로 받아오기????
 
 </details>
 
+  <details>
+    <summary>20230315</summary>
+    
+    ```
+    scraper를 fork해봄
+    git명령어에 익숙해져가고 있음. 처음으로 clone, fork, ... 등등을 해보았고, git을 사용한 협업이 필수적임을 깨닫게 되었음.
+    
+    추가로 parser를 업데이트하는 커밋을 해봄.
+    
+    현재 PF데이터에 탈락사유가 없어서, 추가적인 테이블을 만들어줌.
+    
+    
+    ```
+    
+  </details>
+  
+  <details>
+    <summary>20230316</summary>
+    
+    ```
+    scraper를 fork해봄
+    git명령어에 익숙해져가고 있음. 처음으로 clone, fork, ... 등등을 해보았고, git을 사용한 협업이 필수적임을 깨닫게 되었음.
+    
+    추가로 parser를 업데이트하는 커밋을 해봄.
+    
+    현재 PF데이터에 탈락사유가 없어서, 추가적인 테이블을 만들어줌.
+    
+    
+    ```
+    
+  </details>
 </details>
