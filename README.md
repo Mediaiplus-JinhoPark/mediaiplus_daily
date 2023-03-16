@@ -507,16 +507,24 @@ git명령어에 익숙해져가고 있음. 처음으로 clone, fork, ... 등등�
 <summary>20230316</summary>
 
 ```
+ct_result_list : 딕셔너리, key로 'Participant Flow', 'Baseline Characteristics', 'Outcome Measure', 'Adverse Events' 를 가짐
+  
+PF구조
+result_dict['Participant Flow'].keys() = dict_keys(['모집상세설명', '배정 전 상세설명', 'Participant Flow List'])
+  
+result_dict['Participant Flow']['Participant Flow List'] 의 길이는 Period의 갯수를 의미함 
+하나의 피리어드 내부에는, 여러개의 암그룹이 있을수 있음. -> 암그룹 리스트가 필요함
+result_dict['Participant Flow']['Participant Flow List'][0].keys() = dict_keys(['기간명', 'Arm Group List', '단위'])
+  
+  첫번째 암그룹의 데이터를 보자.
+  result_dict['Participant Flow']['Participant Flow List'][0]['Arm Group List'][0].keys() = 
+  dict_keys(['중재 / 관찰군명', '중재 / 관찰군 상세내용', '연구시작', 'Important Study Step List', '연구완료', '탈락', 'Fail Reason List'])
 
-scraper를 fork해봄
-git명령어에 익숙해져가고 있음. 처음으로 clone, fork, ... 등등을 해보았고, git을 사용한 협업이 필수적임을 깨닫게 되었음.
-
-추가로 parser를 업데이트하는 커밋을 해봄.
-
-현재 PF데이터에 탈락사유가 없어서, 추가적인 테이블을 만들어줌.
-체크 : has_fail_reason
-
-
+  암그룹 내부에는, 여러개의 마일스톤 데이터와 탈락사유가 있을수 있음.
+  첫번쨰 피리어드 내부의 첫번째 암그룹의 첫번째 마일스톤을 보자.
+  result_dict['Participant Flow']['Participant Flow List'][0]['Arm Group List'][0]['Important Study Step List'][0]
+{'중요연구단계': '시험약 또는 위약 복용', '중요연구단계 결과': '9'}
+  마일스톤 리스트의 요소는 딕셔너리의 형태로 되어있음 -> 탈락사유 리스트또한 같은 구조의 딕셔너리임.
 ```
 
 </details>
