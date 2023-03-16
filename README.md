@@ -509,7 +509,7 @@ git명령어에 익숙해져가고 있음. 처음으로 clone, fork, ... 등등�
 ```
 ct_result_list : 딕셔너리, key로 'Participant Flow', 'Baseline Characteristics', 'Outcome Measure', 'Adverse Events' 를 가짐
   
-PF구조
+PF구조 파악하기
 result_dict['Participant Flow'].keys() = dict_keys(['모집상세설명', '배정 전 상세설명', 'Participant Flow List'])
   
 result_dict['Participant Flow']['Participant Flow List'] 의 길이는 Period의 갯수를 의미함 
@@ -525,6 +525,18 @@ result_dict['Participant Flow']['Participant Flow List'][0].keys() = dict_keys([
   result_dict['Participant Flow']['Participant Flow List'][0]['Arm Group List'][0]['Important Study Step List'][0]
 {'중요연구단계': '시험약 또는 위약 복용', '중요연구단계 결과': '9'}
   마일스톤 리스트의 요소는 딕셔너리의 형태로 되어있음 -> 탈락사유 리스트또한 같은 구조의 딕셔너리임.
+  
+  BC구조 파악하기
+  
+  먼저 첫번째 테이블은 고정적임
+  다음 테이블은, 나이 테이블 -> 나이는 범주형, 연속형, 그외속성으로 나뉘고 3개가 다 있거나 하나만 있을 수 있음.
+  그러므로 나오는대로 다만듬
+  total_dict['Arm Group List'][i] 에는 딕셔너리가 들어감. 각 딕셔너리의 키가 td가없는 데이터의 th, 즉 타이틀이됨.
+  
+  나이 그 외 특성 아웃라이어 : 
+  https://cris.nih.go.kr/cris/resultsearch/resultSearch.do/?seq=24196&search_page=L&search_lang=K
+  지역
+  https://cris.nih.go.kr/cris/resultsearch/resultSearch.do/?seq=6904&search_page=L&search_lang=K
 ```
 
 </details>
