@@ -537,6 +537,12 @@ result_dict['Participant Flow']['Participant Flow List'][0].keys() = dict_keys([
   https://cris.nih.go.kr/cris/resultsearch/resultSearch.do/?seq=24196&search_page=L&search_lang=K
   지역
   https://cris.nih.go.kr/cris/resultsearch/resultSearch.do/?seq=6904&search_page=L&search_lang=K
+  
+  result_dict['Baseline Characteristics']['Arm Group List'][0].keys() = 
+dict_keys(['중재 / 관찰군명', '중재 / 관찰군 상세내용', '전체분석 대상수', '나이, 연속형 Dict', '성별 : 여성, 남성 Dict', '등록지역 Dict', 'Study Specific Measure List'])
+  
+  result_dict['Baseline Characteristics'].keys()
+dict_keys(['Arm Group List', 'Total', '분석단위', '전체분석 대상설명', '나이, 연속형 Dict', '성별 : 여성, 남성 Dict', '등록지역 Dict', 'Study Specific Measure List'])
 ```
 
 </details>
