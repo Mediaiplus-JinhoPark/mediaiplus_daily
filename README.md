@@ -397,167 +397,203 @@ my daily report
 <!-- week3 -->
 
 <details>
+
 <summary>week3</summary>
 
-<details>
-
-<summary>20230313</summary>
+> <details>
+> 
+> <summary>20230313</summary>
+>   
+> ```
+> 연구결과 등록으로 검색 -> 1. 에러페이지가 나오는지 확인 -> 에러나면 그대로 리턴
+> 2. 페이지에 접속을 해도, 실제 데이터가 없을수있음.
+> 3. 국문/영문으로 할지, 각각 페이지에서 크롤링 할지 정하기 -> 물어봐야 할듯 근데 KCT0008257 를 보면 각각 따로 하는게 좋을듯함.
+>  
+> 
+> 현재 발생한 문제점 : 
+> 1. 로딩되는 시간을 줘야 에러가 안남
+> 2. 검색되는 데이터의 개수가 다름 -> 
+>     연구결과 등록된 데이터들을 볼때, start date를 비워둔 데이터의 개수와 2010-01-01, 즉 cris홈페이지에서 제공하는 초기값을 주면 데이터 개수값이 달라짐.
+>     
+> 
+> html구조
+> 연구정보, 연구결과 상이함
+> main div -> print div 
+> 내일 물어볼거 : date_list는 필요없는건가?
+>   
+>   
+>   
+> 결과구조분석
+> 1. Participant Flow
+> 모집상세설명
+> 배정 전 상세설명
+> -> 고정적인 두개의 행!!
+> 그다음 기간이나옴 -> 주로 기간은 한개존재함.
+> 
+> 
+> 크롤링 과정
+> 만약 K인경우, E인경우 나눠서
+> 각각 parsing_result_kor_doc(resp), parsing_result_eng_doc(resp) 을 호출함.
+> 
+> ```
+> 
+> </details>
+>   
+> <details>
+> 
+> <summary>20230314</summary>
+>   
+> ```
+> 연구결과 등록으로 검색 -> 1. 에러페이지가 나오는지 확인 -> 에러나면 그대로 리턴
+> 2. 페이지에 접속을 해도, 실제 데이터가 없을수있음.
+> 3. 국문/영문으로 할지, 각각 페이지에서 크롤링 할지 정하기 -> 물어봐야 할듯 근데 KCT0008257 를 보면 각각 따로 하는게 좋을듯함.
+> 
+> study details/study results를 크롤링해와야함 -> 먼저 검색조건에 맞는 날짜에 갱신된 데이터에 한해서 크롤링 그 후 결과가 등록된 데이터를 크롤링
+> get max update 는, study details를 크롤링할때 받아와지므로 자동으로 업데이트됨.
+>   결과 등록된 데이터는 없는 경우가 많음
+>   
+>   표안에 표 : 하나의 tr내에 두개의 th
+>   원래대로라면 [[th],[td]] 이지만 th가 두개라면 [[th,th],[td]]가 됨
+>   td내에 pre가 되어있을수도있다... -> ().text 사용하면 똑같이나옴
+>   
+>   먼저 results를 크게 4개로 분리, 그 후 각각을 다시 테이블로 분리, 그러면 그 각각의 테이블들은 tr을 갖는다.
+>   각 tr을 th_list, td_list로 분리한다. 그후 [th_list, td_list]로 만들어 캡션과함께 테이블딕셔너리에 해당하는 value에 append해준다.
+>   
+>   tr,td를 분리할때, colspan rowspan을 잘 보자 -> 
+>   rowspan = 2 의 의미? 두개의 행을 차지함.
+>   colspan = 2 의 의미? 두개의 열을 차지함 즉 세분화된 데이터가 있는경우, colspan, rowspan이 사용
+>   
+>   코드에 주석으로 남겨둠.
+>   
+>   
+>   Participant Flow 구조 >>>
+>   하나의 시퀀스에 여러개의 피리어드
+>   각각 피리어드 내에는 여러개의 암그룹이 있을 수 있음 
+>   
+>   현재 Participant Flow 관련 메소드:
+>   cris_ct_result_participant_flow_desc -> 수정필요 x
+>   cris_ct_result_participant_flow_list_desc -> 하나의 시퀀스에 여러개의 피리어드를 PFSId로 구분해서 넣어놈. 스키마는 단위, 코멘트
+>   cris_ct_result_participant_flow_arm_group -> 암그룹당 정보, 탈락관련정보누락됨
+>   cris_ct_result_participant_flow_arm_group_research_step -> 마일스톤은 암그룹당 없을수도있거나 여러개임
+>   
+>   -> 탈락관련데이터가 아예 없다!
+>   
+>   
+>   
+>   
+>   
+> api로 받아오기????
+> ```
+> 
+> </details>
+> 
+> <details>
+> <summary>20230315</summary>
+> 
+> ```
+> 
+> scraper를 fork해봄
+> git명령어에 익숙해져가고 있음. 처음으로 clone, fork, ... 등등을 해보았고, git을 사용한 협업이 필수적임을 깨닫게 되었음.
+> 
+> 추가로 parser를 업데이트하는 커밋을 해봄.
+> 
+> 현재 PF데이터에 탈락사유가 없어서, 추가적인 테이블을 만들어줌.
+> 
+> 
+> ```
+>     
+> </details>
+> 
+> <details>
+> <summary>20230316</summary>
+> 
+> ```
+> ct_result_list : 딕셔너리, key로 'Participant Flow', 'Baseline Characteristics', 'Outcome Measure', 'Adverse Events' 를 가짐
+>   
+> PF구조 파악하기
+> result_dict['Participant Flow'].keys() = dict_keys(['모집상세설명', '배정 전 상세설명', 'Participant Flow List'])
+>   
+> result_dict['Participant Flow']['Participant Flow List'] 의 길이는 Period의 갯수를 의미함 
+> 하나의 피리어드 내부에는, 여러개의 암그룹이 있을수 있음. -> 암그룹 리스트가 필요함
+> result_dict['Participant Flow']['Participant Flow List'][0].keys() = dict_keys(['기간명', 'Arm Group List', '단위'])
+>   
+>   첫번째 암그룹의 데이터를 보자.
+>   result_dict['Participant Flow']['Participant Flow List'][0]['Arm Group List'][0].keys() = 
+>   dict_keys(['중재 / 관찰군명', '중재 / 관찰군 상세내용', '연구시작', 'Important Study Step List', '연구완료', '탈락', 'Fail Reason List'])
+> 
+>   암그룹 내부에는, 여러개의 마일스톤 데이터와 탈락사유가 있을수 있음.
+>   첫번쨰 피리어드 내부의 첫번째 암그룹의 첫번째 마일스톤을 보자.
+>   result_dict['Participant Flow']['Participant Flow List'][0]['Arm Group List'][0]['Important Study Step List'][0]
+> {'중요연구단계': '시험약 또는 위약 복용', '중요연구단계 결과': '9'}
+>   마일스톤 리스트의 요소는 딕셔너리의 형태로 되어있음 -> 탈락사유 리스트또한 같은 구조의 딕셔너리임.
+>   
+>   BC구조 파악하기
+>   
+>   먼저 첫번째 테이블은 고정적임
+>   다음 테이블은, 나이 테이블 -> 나이는 범주형, 연속형, 그외속성으로 나뉘고 3개가 다 있거나 하나만 있을 수 있음.
+>   그러므로 나오는대로 다만듬
+>   total_dict['Arm Group List'][i] 에는 딕셔너리가 들어감. 각 딕셔너리의 키가 td가없는 데이터의 th, 즉 타이틀이됨.
+>   
+>   나이 그 외 특성 아웃라이어 : 
+>   https://cris.nih.go.kr/cris/resultsearch/resultSearch.do/?seq=24196&search_page=L&search_lang=K
+>   지역
+>   https://cris.nih.go.kr/cris/resultsearch/resultSearch.do/?seq=6904&search_page=L&search_lang=K
+>   
+>   result_dict['Baseline Characteristics']['Arm Group List'][0].keys() = 
+> dict_keys(['중재 / 관찰군명', '중재 / 관찰군 상세내용', '전체분석 대상수', '나이, 연속형 Dict', '성별 : 여성, 남성 Dict', '등록지역 Dict', 'Study Specific Measure List'])
+>   
+>   result_dict['Baseline Characteristics'].keys()
+> dict_keys(['Arm Group List', 'Total', '분석단위', '전체분석 대상설명', '나이, 연속형 Dict', '성별 : 여성, 남성 Dict', '등록지역 Dict', 'Study Specific Measure List'])
+> ```
+> 
+> </details>
+> 
+> <details>
+> <summary>20230317</summary>
+> 
+> ```
+> 
+> ctrl + u : 리눅스 커맨드 삭제
+> 
+> 디비에 넣는 메소드
+>   주요 아이디어 : 암그룹마다 공통데이터인지, 차이가나는지에 따라 테이블 분리
+>   
+> cris_ct_result_baseline_chc_desc : 첫번째 테이블의 모든 암그룹의 공통 데이터만
+>   
+> cris_ct_result_baseline_chc_age_categorical : 나이 범주형이 존재할때, 암그룹의 공통 데이터
+> cris_ct_result_baseline_chc_age_continuous : 나이 연속형이 존재할때, 암그룹의 공통 데이터
+> cris_ct_result_baseline_chc_age_other : 나이 그 외 특성이 존재할때, 암그룹의 공통 데이터
+> 
+> cris_ct_result_baseline_chc_gender : 성별 여성남성이 존재할때, 암그룹의 공통 데이터
+> cris_ct_result_baseline_chc_gender_other : 성별 그 외 특성 존재할때, 암그룹의 공통 데이터
+>   
+> cris_ct_result_baseline_chc_enrollment_region : 등록지역, 공통데이터 
+>   
+> cris_ct_result_baseline_chc_other_specific : 그 외 특성, 같은 시퀀스에 대해 여러개의 OSSId가 있을 수 있다.
+> OSSId를 사용함 (Other specific study Id)
+>   
+> 이제부턴 AGTId (Arm Group Title Id)를 암그룹 수에 따라 가질수 있음
+> cris_ct_result_baseline_chc_arm : 첫번째 테이블 각각 암그룹 데이터 AGTId를 사용함
+>   
+> cris_ct_result_baseline_chc_arm_age_categorical : 나이 범주형 데이터, 암그룹마다 저장
+> 
+> 나이 연속형 데이터
+> cris_ct_result_baseline_chc_arm_age_continuous_measure_type
+> cris_ct_result_baseline_chc_arm_age_continuous_dispersion
+>   -> 현재 테이블에 측정치 종류 분산도 측정을 따로 저장중인데, 한번에 저장하는거로 바꾸고, 
+>   그 후 나이 연속형말고도 측정치 종류, 분산도 측정이 나올수있으므 만들어줘야함.
+> 
+> cris_ct_result_baseline_chc_arm_age_other_category : 한 시퀀스내에 여러개의 AGTId, 각각 AGTId당 AOCId가 할당될수있음.
+> AOCId(Age other category Id)가 범주명의 갯수가됨.
+>   
+> cris_ct_result_baseline_chc_arm_age_other_category_result : 각 AOCId 에 ACRId할당.
+>   연습용으로 좋은 seq : 13913
+>   
+> cris_ct_result_baseline_chc_arm_other_sp_category : 암그룹 -> 그외특성리스트 -> 범주명 리스트
+> ```
+> 
+> </details>
   
-```
-연구결과 등록으로 검색 -> 1. 에러페이지가 나오는지 확인 -> 에러나면 그대로 리턴
-2. 페이지에 접속을 해도, 실제 데이터가 없을수있음.
-3. 국문/영문으로 할지, 각각 페이지에서 크롤링 할지 정하기 -> 물어봐야 할듯 근데 KCT0008257 를 보면 각각 따로 하는게 좋을듯함.
- 
-
-현재 발생한 문제점 : 
-1. 로딩되는 시간을 줘야 에러가 안남
-2. 검색되는 데이터의 개수가 다름 -> 
-    연구결과 등록된 데이터들을 볼때, start date를 비워둔 데이터의 개수와 2010-01-01, 즉 cris홈페이지에서 제공하는 초기값을 주면 데이터 개수값이 달라짐.
-    
-
-html구조
-연구정보, 연구결과 상이함
-main div -> print div 
-내일 물어볼거 : date_list는 필요없는건가?
-  
-  
-  
-결과구조분석
-1. Participant Flow
-모집상세설명
-배정 전 상세설명
--> 고정적인 두개의 행!!
-그다음 기간이나옴 -> 주로 기간은 한개존재함.
-
-
-크롤링 과정
-만약 K인경우, E인경우 나눠서
-각각 parsing_result_kor_doc(resp), parsing_result_eng_doc(resp) 을 호출함.
-
-```
-
-</details>
-  
-<details>
-
-<summary>20230314</summary>
-  
-```
-연구결과 등록으로 검색 -> 1. 에러페이지가 나오는지 확인 -> 에러나면 그대로 리턴
-2. 페이지에 접속을 해도, 실제 데이터가 없을수있음.
-3. 국문/영문으로 할지, 각각 페이지에서 크롤링 할지 정하기 -> 물어봐야 할듯 근데 KCT0008257 를 보면 각각 따로 하는게 좋을듯함.
-
-study details/study results를 크롤링해와야함 -> 먼저 검색조건에 맞는 날짜에 갱신된 데이터에 한해서 크롤링 그 후 결과가 등록된 데이터를 크롤링
-get max update 는, study details를 크롤링할때 받아와지므로 자동으로 업데이트됨.
-  결과 등록된 데이터는 없는 경우가 많음
-  
-  표안에 표 : 하나의 tr내에 두개의 th
-  원래대로라면 [[th],[td]] 이지만 th가 두개라면 [[th,th],[td]]가 됨
-  td내에 pre가 되어있을수도있다... -> ().text 사용하면 똑같이나옴
-  
-  먼저 results를 크게 4개로 분리, 그 후 각각을 다시 테이블로 분리, 그러면 그 각각의 테이블들은 tr을 갖는다.
-  각 tr을 th_list, td_list로 분리한다. 그후 [th_list, td_list]로 만들어 캡션과함께 테이블딕셔너리에 해당하는 value에 append해준다.
-  
-  tr,td를 분리할때, colspan rowspan을 잘 보자 -> 
-  rowspan = 2 의 의미? 두개의 행을 차지함.
-  colspan = 2 의 의미? 두개의 열을 차지함 즉 세분화된 데이터가 있는경우, colspan, rowspan이 사용
-  
-  코드에 주석으로 남겨둠.
-  
-  
-  Participant Flow 구조 >>>
-  하나의 시퀀스에 여러개의 피리어드
-  각각 피리어드 내에는 여러개의 암그룹이 있을 수 있음 
-  
-  현재 Participant Flow 관련 메소드:
-  cris_ct_result_participant_flow_desc -> 수정필요 x
-  cris_ct_result_participant_flow_list_desc -> 하나의 시퀀스에 여러개의 피리어드를 PFSId로 구분해서 넣어놈. 스키마는 단위, 코멘트
-  cris_ct_result_participant_flow_arm_group -> 암그룹당 정보, 탈락관련정보누락됨
-  cris_ct_result_participant_flow_arm_group_research_step -> 마일스톤은 암그룹당 없을수도있거나 여러개임
-  
-  -> 탈락관련데이터가 아예 없다!
-  
-  
-  
-  
-  
-api로 받아오기????
-```
-
-</details>
-
-<details>
-<summary>20230315</summary>
-
-```
-
-scraper를 fork해봄
-git명령어에 익숙해져가고 있음. 처음으로 clone, fork, ... 등등을 해보았고, git을 사용한 협업이 필수적임을 깨닫게 되었음.
-
-추가로 parser를 업데이트하는 커밋을 해봄.
-
-현재 PF데이터에 탈락사유가 없어서, 추가적인 테이블을 만들어줌.
-
-
-```
-    
-</details>
-
-<details>
-<summary>20230316</summary>
-
-```
-ct_result_list : 딕셔너리, key로 'Participant Flow', 'Baseline Characteristics', 'Outcome Measure', 'Adverse Events' 를 가짐
-  
-PF구조 파악하기
-result_dict['Participant Flow'].keys() = dict_keys(['모집상세설명', '배정 전 상세설명', 'Participant Flow List'])
-  
-result_dict['Participant Flow']['Participant Flow List'] 의 길이는 Period의 갯수를 의미함 
-하나의 피리어드 내부에는, 여러개의 암그룹이 있을수 있음. -> 암그룹 리스트가 필요함
-result_dict['Participant Flow']['Participant Flow List'][0].keys() = dict_keys(['기간명', 'Arm Group List', '단위'])
-  
-  첫번째 암그룹의 데이터를 보자.
-  result_dict['Participant Flow']['Participant Flow List'][0]['Arm Group List'][0].keys() = 
-  dict_keys(['중재 / 관찰군명', '중재 / 관찰군 상세내용', '연구시작', 'Important Study Step List', '연구완료', '탈락', 'Fail Reason List'])
-
-  암그룹 내부에는, 여러개의 마일스톤 데이터와 탈락사유가 있을수 있음.
-  첫번쨰 피리어드 내부의 첫번째 암그룹의 첫번째 마일스톤을 보자.
-  result_dict['Participant Flow']['Participant Flow List'][0]['Arm Group List'][0]['Important Study Step List'][0]
-{'중요연구단계': '시험약 또는 위약 복용', '중요연구단계 결과': '9'}
-  마일스톤 리스트의 요소는 딕셔너리의 형태로 되어있음 -> 탈락사유 리스트또한 같은 구조의 딕셔너리임.
-  
-  BC구조 파악하기
-  
-  먼저 첫번째 테이블은 고정적임
-  다음 테이블은, 나이 테이블 -> 나이는 범주형, 연속형, 그외속성으로 나뉘고 3개가 다 있거나 하나만 있을 수 있음.
-  그러므로 나오는대로 다만듬
-  total_dict['Arm Group List'][i] 에는 딕셔너리가 들어감. 각 딕셔너리의 키가 td가없는 데이터의 th, 즉 타이틀이됨.
-  
-  나이 그 외 특성 아웃라이어 : 
-  https://cris.nih.go.kr/cris/resultsearch/resultSearch.do/?seq=24196&search_page=L&search_lang=K
-  지역
-  https://cris.nih.go.kr/cris/resultsearch/resultSearch.do/?seq=6904&search_page=L&search_lang=K
-  
-  result_dict['Baseline Characteristics']['Arm Group List'][0].keys() = 
-dict_keys(['중재 / 관찰군명', '중재 / 관찰군 상세내용', '전체분석 대상수', '나이, 연속형 Dict', '성별 : 여성, 남성 Dict', '등록지역 Dict', 'Study Specific Measure List'])
-  
-  result_dict['Baseline Characteristics'].keys()
-dict_keys(['Arm Group List', 'Total', '분석단위', '전체분석 대상설명', '나이, 연속형 Dict', '성별 : 여성, 남성 Dict', '등록지역 Dict', 'Study Specific Measure List'])
-```
-
-</details>
-  
-  <details>
-    <summary>20230317</summary>
-    
-    ```
-    
-    
-    
-    
-    ```
-    
-    </details>
 </details>
 
 
