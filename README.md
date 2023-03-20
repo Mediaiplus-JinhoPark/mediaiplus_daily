@@ -593,7 +593,55 @@ my daily report
 > ```
 > 
 > </details>
+</details>
   
+<!--   week4 -->
+  
+<details>
+
+<summary>week4</summary>
+<details>
+
+<summary>20230320</summary>
+
+```
+
+분산도&측정치 수정 :
+  cris_ct_result_baseline_chc_arm_age_continuous_measurements
+  cris_ct_result_baseline_chc_arm_age_other_category_measurements
+  cris_ct_result_baseline_chc_arm_gender_other_category_measurements
+  
+  RAW -> REFINE 으로 옮기기
+  중요한 부분 : DB테이블이 변경되면, REFINE에 들어갈 데이터들도 바뀌어야하므로, 따로 코드를 수정해야함.
+  
+  OM 분석하기
+  
+  결과변수의 갯수에 따라, 테이블의 갯수가 다름.
+  테이블 형식은, 결과변수 - 암그룹 정보 - data table 로 되어있음.
+  
+  ct_result_list[i]['content']['Outcome Measure']['Outcome Measure List'][0] -> 0번째 OM, keys() 는
+  dict_keys(['결과변수종류', '평가항목', '평가항목 상세설명', '평가시기', '통계분석', 'Arm Group List', '전체분석단위', '전체분석 대상설명', '측정단위']) 가 존재하고, Arm Group List를 제외하고 모두 공통항목임.
+  
+  기존의 방식에서 수정한부분 : 구조적으로는 없으나, 코드상오류가 하나 있었음
+  
+  나중에 다뤄야할 이슈 : 페이지 10개 넘어가면안됨.
+  
+  AE 분석하기
+  
+  첫번째 테이블 고정
+  두번째 테이블은, 암그룹의 갯수만큼 column을 가짐. -> 행은 고정
+  All cause mortality - 발생대상수, 연구대상수 고정
+  Serious Adverse events - 발생대상수, 연구대상수, 이상반응 보고 횟수 고정
+  
+  
+f
+
+```
+
+
+
+</details>
+</details>
 </details>
 
 
