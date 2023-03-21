@@ -632,15 +632,31 @@ my daily report
   두번째 테이블은, 암그룹의 갯수만큼 column을 가짐. -> 행은 고정
   All cause mortality - 발생대상수, 연구대상수 고정
   Serious Adverse events - 발생대상수, 연구대상수, 이상반응 보고 횟수 고정
-  
-  
-f
+
 
 ```
 
+</details>
 
+<details>
+
+<summary>20230321</summary>
+
+```
+
+현재문제점 
+  Other (Not Including Serious) Adverse Events 에서 
+  발생빈도보고기준 탭이 있으면, 데이터가 한칸씩 밀려남
+  
+  Serious Adverse Events 에서
+  Term, Total 아래 데이터는 무의미한 데이터로 취급함 -> 일단 유지 하기
+  
+  
+
+```
 
 </details>
+  
 </details>
 </details>
 
