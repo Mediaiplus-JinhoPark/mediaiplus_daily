@@ -657,6 +657,20 @@ my daily report
 
 </details>
   
+<details>
+
+<summary>20230322</summary>
+
+```
+
+cris api로 받아오기 : 페이지 설정을 해줘야함(데이터가 20개를 넘어가면 1페이지만으로 안끝남)
+  
+  
+
+```
+
+</details>
+  
 </details>
 </details>
 
