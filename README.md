@@ -670,6 +670,20 @@ cris api로 받아오기 : 페이지 설정을 해줘야함(데이터가 20개�
 ```
 
 </details>
+
+<details>
+
+<summary>20230322</summary>
+
+```
+
+DB에  만들기 : 
+  import pymysql 을 import mysql.connector as pymysql 로 바꿔
+  cursor 선언시 cursor = conn.cursor()  
+
+```
+
+</details>
   
 </details>
 </details>
