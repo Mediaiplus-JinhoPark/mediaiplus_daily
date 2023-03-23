@@ -681,6 +681,8 @@ DB에  만들기 :
   import pymysql 을 import mysql.connector as pymysql 로 바꿔
   cursor 선언시 cursor = conn.cursor()  
 
+해야하는거 : sql구문 수정해서, 테이블 만들기
+탈락사유 테이블 insert위해 함수만들기
 ```
 
 </details>
