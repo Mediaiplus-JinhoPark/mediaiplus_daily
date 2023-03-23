@@ -683,6 +683,16 @@ DB에  만들기 :
 
 해야하는거 : sql구문 수정해서, 테이블 만들기
 탈락사유 테이블 insert위해 함수만들기
+  
+  cris_ct_result_baseline_chc_arm_age_other_category_result 수정해야함
+  -> 수정완료
+  
+  '측정치 종류', '분산도 측정' 이 나올수있는 데이터 : 나이연속 나이그외 성별그외 그외특성
+  -> 나이연속은 이미존재하므로 총 6개의 추가 테이블을 만들어야함 : sql 수정, info 수정, 함수선언 
+  
+  crisids받아오는 함수 수정
+  
+  
 ```
 
 </details>
