@@ -598,127 +598,130 @@ my daily report
 <!--   week4 -->
   
 <details>
-
 <summary>week4</summary>
-<details>
-
-<summary>20230320</summary>
-
-```
-
-분산도&측정치 수정 :
-  cris_ct_result_baseline_chc_arm_age_continuous_measurements
-  cris_ct_result_baseline_chc_arm_age_other_category_measurements
-  cris_ct_result_baseline_chc_arm_gender_other_category_measurements
   
-  RAW -> REFINE 으로 옮기기
-  중요한 부분 : DB테이블이 변경되면, REFINE에 들어갈 데이터들도 바뀌어야하므로, 따로 코드를 수정해야함.
+> <details>
+> 
+> <summary>20230320</summary>
+> 
+> ```
+> 
+> 분산도&측정치 수정 :
+> cris_ct_result_baseline_chc_arm_age_continuous_measurements
+> cris_ct_result_baseline_chc_arm_age_other_category_measurements
+> cris_ct_result_baseline_chc_arm_gender_other_category_measurements
+> 
+> RAW -> REFINE 으로 옮기기
+> 중요한 부분 : DB테이블이 변경되면, REFINE에 들어갈 데이터들도 바뀌어야하므로, 따로 코드를 수정해야함.
+> 
+> OM 분석하기
+> 
+> 결과변수의 갯수에 따라, 테이블의 갯수가 다름.
+> 테이블 형식은, 결과변수 - 암그룹 정보 - data table 로 되어있음.
+> 
+> ct_result_list[i]['content']['Outcome Measure']['Outcome Measure List'][0] -> 0번째 OM, keys() 는
+> dict_keys(['결과변수종류', '평가항목', '평가항목 상세설명', '평가시기', '통계분석', 'Arm Group List', '전체분석단위', '전체분석 대상설명', '측정단위']) 가 존재하고, Arm Group List를 제외하고 모두 공통항목임.
+> 
+> 기존의 방식에서 수정한부분 : 구조적으로는 없으나, 코드상오류가 하나 있었음
+> 
+> 나중에 다뤄야할 이슈 : 페이지 10개 넘어가면안됨.
+> 
+> AE 분석하기
+> 
+> 첫번째 테이블 고정
+> 두번째 테이블은, 암그룹의 갯수만큼 column을 가짐. -> 행은 고정
+> All cause mortality - 발생대상수, 연구대상수 고정
+> Serious Adverse events - 발생대상수, 연구대상수, 이상반응 보고 횟수 고정
+> 
+> 
+> ```
+> 
+> </details>
+> 
+> <details>
+> 
+> <summary>20230321</summary>
+> 
+> ```
+> 
+> 현재문제점 
+> Other (Not Including Serious) Adverse Events 에서 
+> 발생빈도보고기준 탭이 있으면, 데이터가 한칸씩 밀려남
+> 
+> Serious Adverse Events 에서
+> Term, Total 아래 데이터는 무의미한 데이터로 취급함 -> 일단 유지 하기
+> 
+> 
+> 
+> ```
+> 
+> </details>
+> 
+> <details>
+> 
+> <summary>20230322</summary>
+> 
+> ```
+> 
+> cris api로 받아오기 : 페이지 설정을 해줘야함(데이터가 20개를 넘어가면 1페이지만으로 안끝남)
+> prepared=True **
+> 
+> 
+> ```
+> 
+> </details>
+> 
+> <details>
+> 
+> <summary>20230323</summary>
+> 
+> ```
+> 
+> DB에  만들기 : 
+> import pymysql 을 import mysql.connector as pymysql 로 바꿔
+> cursor 선언시 cursor = conn.cursor()  
+> 
+> 해야하는거 : sql구문 수정해서, 테이블 만들기
+> 탈락사유 테이블 insert위해 함수만들기
+> 
+> cris_ct_result_baseline_chc_arm_age_other_category_result 수정해야함
+> -> 수정완료
+> 
+> '측정치 종류', '분산도 측정' 이 나올수있는 데이터 : 나이연속 나이그외 성별그외 그외특성
+> -> 나이연속은 이미존재하므로 총 6개의 추가 테이블을 만들어야함 : sql 수정, info 수정, 함수선언 
+> 
+> crisids받아오는 함수 수정
+> 
+> 
+> ```
+> 
+> </details>
+> 
+> 
+> 
+> <details>
+> 
+> <summary>20230324</summary>
+> 
+> ```
+> 
+> 디비에서 스키마 잘못된것들 수정
+> failed reason 에서 ISS -> FRS
+> other sp 테이블 PRI key에 OSSID추가
+> 
+> eng차트 수정하기 
+> 수정완료 
+> DDL 수정
+> info 수정
+> extract_tree 수정
+> parser 수정
+> 
+> ```
+> 
+> </details>
+
   
-  OM 분석하기
-  
-  결과변수의 갯수에 따라, 테이블의 갯수가 다름.
-  테이블 형식은, 결과변수 - 암그룹 정보 - data table 로 되어있음.
-  
-  ct_result_list[i]['content']['Outcome Measure']['Outcome Measure List'][0] -> 0번째 OM, keys() 는
-  dict_keys(['결과변수종류', '평가항목', '평가항목 상세설명', '평가시기', '통계분석', 'Arm Group List', '전체분석단위', '전체분석 대상설명', '측정단위']) 가 존재하고, Arm Group List를 제외하고 모두 공통항목임.
-  
-  기존의 방식에서 수정한부분 : 구조적으로는 없으나, 코드상오류가 하나 있었음
-  
-  나중에 다뤄야할 이슈 : 페이지 10개 넘어가면안됨.
-  
-  AE 분석하기
-  
-  첫번째 테이블 고정
-  두번째 테이블은, 암그룹의 갯수만큼 column을 가짐. -> 행은 고정
-  All cause mortality - 발생대상수, 연구대상수 고정
-  Serious Adverse events - 발생대상수, 연구대상수, 이상반응 보고 횟수 고정
-
-
-```
-
-</details>
-
-<details>
-
-<summary>20230321</summary>
-
-```
-
-현재문제점 
-  Other (Not Including Serious) Adverse Events 에서 
-  발생빈도보고기준 탭이 있으면, 데이터가 한칸씩 밀려남
-  
-  Serious Adverse Events 에서
-  Term, Total 아래 데이터는 무의미한 데이터로 취급함 -> 일단 유지 하기
-  
-  
-
-```
-
-</details>
-  
-<details>
-
-<summary>20230322</summary>
-
-```
-
-cris api로 받아오기 : 페이지 설정을 해줘야함(데이터가 20개를 넘어가면 1페이지만으로 안끝남)
-  prepared=True **
-  
-
-```
-
-</details>
-
-<details>
-
-<summary>20230323/summary>
-
-```
-
-DB에  만들기 : 
-  import pymysql 을 import mysql.connector as pymysql 로 바꿔
-  cursor 선언시 cursor = conn.cursor()  
-
-해야하는거 : sql구문 수정해서, 테이블 만들기
-탈락사유 테이블 insert위해 함수만들기
-  
-  cris_ct_result_baseline_chc_arm_age_other_category_result 수정해야함
-  -> 수정완료
-  
-  '측정치 종류', '분산도 측정' 이 나올수있는 데이터 : 나이연속 나이그외 성별그외 그외특성
-  -> 나이연속은 이미존재하므로 총 6개의 추가 테이블을 만들어야함 : sql 수정, info 수정, 함수선언 
-  
-  crisids받아오는 함수 수정
-  
-  
-```
-
-</details>
-  
-<details>
-
-<summary>20230324/summary>
-
-```
-
-디비에서 스키마 잘못된것들 수정
-  failed reason 에서 ISS -> FRS
-  other sp 테이블 PRI key에 OSSID추가
-  
-eng차트 수정하기 
-  수정완료 
-  DDL 수정
-  info 수정
-  extract_tree 수정
-  parser 수정
-  
-```
-
-</details>
-  
-</details>
+> </details>
 </details>
 
 
