@@ -673,7 +673,7 @@ cris api로 받아오기 : 페이지 설정을 해줘야함(데이터가 20개�
 
 <details>
 
-<summary>20230322</summary>
+<summary>20230323/summary>
 
 ```
 
@@ -692,6 +692,22 @@ DB에  만들기 :
   
   crisids받아오는 함수 수정
   
+  
+```
+
+</details>
+  
+<details>
+
+<summary>20230324/summary>
+
+```
+
+디비에서 스키마 잘못된것들 수정
+  failed reason 에서 ISS -> FRS
+  other sp 테이블 PRI key에 OSSID추가
+  
+eng차트 수정하기  
   
 ```
 
