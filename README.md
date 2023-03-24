@@ -707,7 +707,12 @@ DB에  만들기 :
   failed reason 에서 ISS -> FRS
   other sp 테이블 PRI key에 OSSID추가
   
-eng차트 수정하기  
+eng차트 수정하기 
+  수정완료 
+  DDL 수정
+  info 수정
+  extract_tree 수정
+  parser 수정
   
 ```
 
