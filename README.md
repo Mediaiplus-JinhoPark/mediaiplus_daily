@@ -737,6 +737,9 @@ my daily report
   
   Error occurred in cris_ct_result_outcome_measure_desc : Error while executing statement: Data too long for column 'outcome_measure_time_frame' at row 1 : 에러 수정 -> sql문 수정, 데이터의 입력값 범위 늘려야함
   varchar -> text 로 수정
+  서버데이터삭제돼서 다시 옮겨오기
+  ssh 접속시, fingerprint -> SSH에서 fingerprint는 공개키의 고유한 식별자로서, 해당 공개키가 유효하고 정확하게 인증된 것임을 보장하기 위한 기술적인 수단이다.
+  
   ```
   
 </details>
