@@ -735,8 +735,8 @@ my daily report
   
   ```
   
-  1234
-  5
+  Error occurred in cris_ct_result_outcome_measure_desc : Error while executing statement: Data too long for column 'outcome_measure_time_frame' at row 1 : 에러 수정 -> sql문 수정, 데이터의 입력값 범위 늘려야함
+  varchar -> text 로 수정
   ```
   
 </details>
