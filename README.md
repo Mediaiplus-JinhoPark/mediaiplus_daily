@@ -744,10 +744,26 @@ my daily report
   
 </details>
 
-
+<details>
+  
+<summary>20230327</summary>
+  
+  ```
+  
+ 연구결과가 있는 553개 데이터에 대해 크롤링하기
+Error occurred in cris_ct_result_participant_flow_arm_group_failed_reason_eng : Error while executing statement: Data too long for column 'failed_reason' at row 1
+Error occurred in cris_ct_result_baseline_chc_arm_eng : Error while executing statement: Data too long for column 'arm_group_title' at row 1
+Error occurred in cris_ct_result_baseline_chc_arm_age_other_category_eng : Error while executing statement: Data too long for column 'category_title' at row 1
+Error occurred in cris_ct_result_baseline_chc_arm_gender_other_category_result_eng : Error while executing statement: Data too long for column 'category_result' at row 1
+Error occurred in cris_ct_result_outcome_measure_arm_group_eng : Error while executing statement: Data too long for column 'arm_group_title' at row 1
+Error occurred in cris_ct_result_adverse_events_arm_group_eng : Error while executing statement: Data too long for column 'arm_group_title' at row 1
+-> sql에서 text로 바꿔주기
+  ```
+  
 </details>
 
 </details>
 
+</details>
 
 
