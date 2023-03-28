@@ -758,6 +758,9 @@ Error occurred in cris_ct_result_baseline_chc_arm_gender_other_category_result_e
 Error occurred in cris_ct_result_outcome_measure_arm_group_eng : Error while executing statement: Data too long for column 'arm_group_title' at row 1
 Error occurred in cris_ct_result_adverse_events_arm_group_eng : Error while executing statement: Data too long for column 'arm_group_title' at row 1
 -> sql에서 text로 바꿔주기
+  
+  '분석대상수' 탭이 두개의 th로 나뉘어진경우, 스키마네임에 ''이 들어감 -> 예외처리를해줘야함
+  
   ```
   
 </details>
