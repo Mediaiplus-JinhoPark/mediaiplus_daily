@@ -761,6 +761,21 @@ Error occurred in cris_ct_result_adverse_events_arm_group_eng : Error while exec
   
   '분석대상수' 탭이 두개의 th로 나뉘어진경우, 스키마네임에 ''이 들어감 -> 예외처리를해줘야함
   
+ 현재 발생한 문제점 :
+ 1. DB에 저장이 안되는 테이블이 존재 -> 그러나 eng은 잘 저장이 되어있음. -> eng,kor 비교해서 해결하자
+ cris_ct_result_adverse_events_all_cause_mortaity
+ cris_ct_result_adverse_events_other_adverse_events
+cris_ct_result_adverse_events_other_adverse_reaction
+cris_ct_result_adverse_events_serious_adverse_events
+cris_ct_result_adverse_events_serious_adverse_reaction
+
+cris_ct_result_outcome_measure_arm_group_category
+cris_ct_result_outcome_measure_arm_group_category_result
+
+2. cris_ct_result_outcome_measure_desc_eng 에 데이터가 저장이안됨 -> 코드수정해야함
+
+
+
   ```
   
 </details>
