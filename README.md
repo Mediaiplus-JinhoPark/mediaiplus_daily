@@ -768,12 +768,14 @@ Error occurred in cris_ct_result_adverse_events_arm_group_eng : Error while exec
 cris_ct_result_adverse_events_other_adverse_reaction
 cris_ct_result_adverse_events_serious_adverse_events
 cris_ct_result_adverse_events_serious_adverse_reaction
-
+-> Dict 붙여서 해결
+  
 cris_ct_result_outcome_measure_arm_group_category
-cris_ct_result_outcome_measure_arm_group_category_result
+cris_ct_result_outcome_measure_arm_group_category_result -> CategoryList, Category List 띄어쓰기 해결
 
-2. cris_ct_result_outcome_measure_desc_eng 에 데이터가 저장이안됨 -> 코드수정해야함
+2. cris_ct_result_outcome_measure_desc_eng 에 데이터가 저장이안됨 -> 코드수정해야함 -> indentation 수정으로 해결
 
+  3. mortaity -> mortaㅣity 오타수정 ...> 할필요 없음.. cris데이터오류였음
 
 
   ```
