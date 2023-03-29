@@ -746,7 +746,7 @@ my daily report
 
 <details>
   
-<summary>20230327</summary>
+<summary>20230328</summary>
   
   ```
   
@@ -779,6 +779,22 @@ cris_ct_result_outcome_measure_arm_group_category_result -> CategoryList, Catego
 
 
   ```
+  
+</details>
+  
+<details>
+  
+<summary>20230329</summary>
+  
+  ```
+  
+  새로운 모델로 크롤링하고 DB에 넣기 -> 데이터 손실이 있나 확인하기
+  
+  cris_ct_result_adverse_events_serious_adverse_reaction
+  cris_ct_result_participant_flow_arm_group_failed_reason 에서 다시 문제 발생, 데이터 저장이 안됨
+  
+  ```
+  
   
 </details>
 
