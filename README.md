@@ -793,6 +793,31 @@ cris_ct_result_outcome_measure_arm_group_category_result -> CategoryList, Catego
   cris_ct_result_adverse_events_serious_adverse_reaction
   cris_ct_result_participant_flow_arm_group_failed_reason 에서 다시 문제 발생, 데이터 저장이 안됨
   
+  cris_ct_all_overview 에 한해서 메소드가 get_rows_cris_all_overview 임.
+  
+  할 일 :
+  1)
+medic-dev-2022.c6dzc5dnqf69.ap-northeast-2.rds.amazonaws.com
+서버, RAW DB 접속
+
+ 
+
+2)
+뒤에 알고리듬 부분, dev_fe_이런것처럼 cris_ct로 시작하는 것 제외
+cris_ct_latest_approved_overvie, _eng 제외
+하여 모든 table drop 후
+
+ 
+
+3) 2에서 제외한 테이블을 제외하고 cris_eng.sql, cris_kor.sql 로
+테이블 생성
+
+ 
+
+4) scraper_manager.py -model=cris -insert=yes -start_date=
+를 실행하여
+기존 cris 데이터 + cris result 데이터 수집
+  
   ```
   
   
