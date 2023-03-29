@@ -818,7 +818,7 @@ cris_ct_latest_approved_overvie, _eng 제외
 를 실행하여
 기존 cris 데이터 + cris result 데이터 수집
   
-  현재 start_date 속성을 안주면 results만 수집되고 프로토콜정보는 수집이 되지 않음
+
   
   ```
   
