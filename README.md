@@ -844,6 +844,9 @@ cris_ct_latest_approved_overvie, _eng 제외
  
 
 4. REFINE을 다시 한번 돌려야 함 --> 도연님께 부탁
+  
+현재 DDL에 REFINE 테이블 DDL이 없음 -> 만들  
+
 
 ```
 </details>
