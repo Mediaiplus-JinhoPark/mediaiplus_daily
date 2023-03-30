@@ -825,6 +825,30 @@ cris_ct_latest_approved_overvie, _eng 제외
   
 </details>
 
+<details>
+
+<summary>20230330</summary>
+
+```
+1. integration folder의 func.py를 참고하여 cris_seq를 이용하고 있는 부분을 모두 분석
+
+ 
+
+2. 해당 파트를 KCTId로 대체
+
+ 
+
+3. RAW 데이터베이스에서 CRIS 테이블들은 KCTId를 primary key로 사용하도록 변경
+--> cris_seq를 그냥 날릴 것인지 아니면 그냥 property로 가지고 있을 것인지... 고민??
+
+ 
+
+4. REFINE을 다시 한번 돌려야 함 --> 도연님께 부탁
+
+```
+</details>
+
+
 </details>
 
 </details>
