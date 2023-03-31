@@ -852,6 +852,24 @@ cris_ct_latest_approved_overvie, _eng 제외
 </details>
 
 
+  <details>
+  
+    <summary>20230331</summary>
+    
+    ```
+    scraper -> refine
+    REFINE 의 순서 : init 에서 _get_in_memory_table 호출
+    
+    
+    
+    
+    
+    
+    ```
+  
+  </details>
+  
+  
 </details>
 
 </details>
