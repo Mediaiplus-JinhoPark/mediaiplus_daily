@@ -728,149 +728,184 @@ my daily report
 <details>
 
 <summary>week5</summary>
+ 
+> <details>
+>   
+> <summary>20230327</summary>
+>   
+>   ```
+>   
+>   Error occurred in cris_ct_result_outcome_measure_desc : Error while executing statement: Data too long for column 'outcome_measure_time_frame' at row 1 : 에러 수정 -> sql문 수정, 데이터의 입력값 범위 늘려야함
+>   varchar -> text 로 수정
+>   서버데이터삭제돼서 다시 옮겨오기
+>   ssh 접속시, fingerprint -> SSH에서 fingerprint는 공개키의 고유한 식별자로서, 해당 공개키가 유효하고 정확하게 인증된 것임을 보장하기 위한 기술적인 수단이다.
+>   
+>   ```
+>   
+> </details>
+> 
+> <details>
+>   
+> <summary>20230328</summary>
+>   
+>   ```
+>   
+>  연구결과가 있는 553개 데이터에 대해 크롤링하기
+> Error occurred in cris_ct_result_participant_flow_arm_group_failed_reason_eng : Error while executing statement: Data too long for column 'failed_reason' at row 1
+> Error occurred in cris_ct_result_baseline_chc_arm_eng : Error while executing statement: Data too long for column 'arm_group_title' at row 1
+> Error occurred in cris_ct_result_baseline_chc_arm_age_other_category_eng : Error while executing statement: Data too long for column 'category_title' at row 1
+> Error occurred in cris_ct_result_baseline_chc_arm_gender_other_category_result_eng : Error while executing statement: Data too long for column 'category_result' at row 1
+> Error occurred in cris_ct_result_outcome_measure_arm_group_eng : Error while executing statement: Data too long for column 'arm_group_title' at row 1
+> Error occurred in cris_ct_result_adverse_events_arm_group_eng : Error while executing statement: Data too long for column 'arm_group_title' at row 1
+> -> sql에서 text로 바꿔주기
+>   
+>   '분석대상수' 탭이 두개의 th로 나뉘어진경우, 스키마네임에 ''이 들어감 -> 예외처리를해줘야함
+>   
+>  현재 발생한 문제점 :
+>  1. DB에 저장이 안되는 테이블이 존재 -> 그러나 eng은 잘 저장이 되어있음. -> eng,kor 비교해서 해결하자
+>  cris_ct_result_adverse_events_all_cause_mortaity
+>  cris_ct_result_adverse_events_other_adverse_events
+> cris_ct_result_adverse_events_other_adverse_reaction
+> cris_ct_result_adverse_events_serious_adverse_events
+> cris_ct_result_adverse_events_serious_adverse_reaction
+> -> Dict 붙여서 해결
+>   
+> cris_ct_result_outcome_measure_arm_group_category
+> cris_ct_result_outcome_measure_arm_group_category_result -> CategoryList, Category List 띄어쓰기 해결
+> 
+> 2. cris_ct_result_outcome_measure_desc_eng 에 데이터가 저장이안됨 -> 코드수정해야함 -> indentation 수정으로 해결
+> 
+>   3. mortaity -> mortaㅣity 오타수정 ...> 할필요 없음.. cris데이터오류였음
+> 
+> 
+>   ```
+>   
+> </details>
+>   
+> <details>
+>   
+> <summary>20230329</summary>
+>   
+>   ```
+>   
+>   새로운 모델로 크롤링하고 DB에 넣기 -> 데이터 손실이 있나 확인하기
+>   
+>   cris_ct_result_adverse_events_serious_adverse_reaction
+>   cris_ct_result_participant_flow_arm_group_failed_reason 에서 다시 문제 발생, 데이터 저장이 안됨
+>   
+>   cris_ct_all_overview 에 한해서 메소드가 get_rows_cris_all_overview 임.
+>   
+>   할 일 :
+>   1)
+> medic-dev-2022.c6dzc5dnqf69.ap-northeast-2.rds.amazonaws.com
+> 서버, RAW DB 접속
+> 
+>  
+> 
+> 2)
+> 뒤에 알고리듬 부분, dev_fe_이런것처럼 cris_ct로 시작하는 것 제외
+> cris_ct_latest_approved_overvie, _eng 제외
+> 하여 모든 table drop 후
+> 
+>  
+> 
+> 3) 2에서 제외한 테이블을 제외하고 cris_eng.sql, cris_kor.sql 로
+> 테이블 생성
+> 
+>  
+> 
+> 4) scraper_manager.py -model=cris -insert=yes -start_date=
+> 를 실행하여
+> 기존 cris 데이터 + cris result 데이터 수집
+>   
+> 
+>   
+>   ```
+>   
+>   
+> </details>
+> 
+> <details>
+> 
+> <summary>20230330</summary>
+> 
+> ```
+> 1. integration folder의 func.py를 참고하여 cris_seq를 이용하고 있는 부분을 모두 분석
+> 
+>  
+> 
+> 2. 해당 파트를 KCTId로 대체
+> 
+>  
+> 
+> 3. RAW 데이터베이스에서 CRIS 테이블들은 KCTId를 primary key로 사용하도록 변경
+> --> cris_seq를 그냥 날릴 것인지 아니면 그냥 property로 가지고 있을 것인지... 고민??
+> 
+>  
+> 
+> 4. REFINE을 다시 한번 돌려야 함 --> 도연님께 부탁
+>   
+> 현재 DDL에 REFINE 테이블 DDL이 없음 -> 만들  
+> 
+> 
+> ```
+> </details>
+> 
+> 
+> <details>
+> 
+> <summary>20230331</summary>
+> 
+> ```
+> scraper -> refine
+> REFINE 의 순서 : init 에서 _get_in_memory_table 호출
+> 
+> 
+> 
+> 
+> 
+> 
+> ```
+> 
+> </details>
+>   
+>   
+> </details>
+
+<!-- week6 -->
+
 
 <details>
-  
-<summary>20230327</summary>
-  
-  ```
-  
-  Error occurred in cris_ct_result_outcome_measure_desc : Error while executing statement: Data too long for column 'outcome_measure_time_frame' at row 1 : 에러 수정 -> sql문 수정, 데이터의 입력값 범위 늘려야함
-  varchar -> text 로 수정
-  서버데이터삭제돼서 다시 옮겨오기
-  ssh 접속시, fingerprint -> SSH에서 fingerprint는 공개키의 고유한 식별자로서, 해당 공개키가 유효하고 정확하게 인증된 것임을 보장하기 위한 기술적인 수단이다.
-  
-  ```
-  
-</details>
 
-<details>
-  
-<summary>20230328</summary>
-  
-  ```
-  
- 연구결과가 있는 553개 데이터에 대해 크롤링하기
-Error occurred in cris_ct_result_participant_flow_arm_group_failed_reason_eng : Error while executing statement: Data too long for column 'failed_reason' at row 1
-Error occurred in cris_ct_result_baseline_chc_arm_eng : Error while executing statement: Data too long for column 'arm_group_title' at row 1
-Error occurred in cris_ct_result_baseline_chc_arm_age_other_category_eng : Error while executing statement: Data too long for column 'category_title' at row 1
-Error occurred in cris_ct_result_baseline_chc_arm_gender_other_category_result_eng : Error while executing statement: Data too long for column 'category_result' at row 1
-Error occurred in cris_ct_result_outcome_measure_arm_group_eng : Error while executing statement: Data too long for column 'arm_group_title' at row 1
-Error occurred in cris_ct_result_adverse_events_arm_group_eng : Error while executing statement: Data too long for column 'arm_group_title' at row 1
--> sql에서 text로 바꿔주기
-  
-  '분석대상수' 탭이 두개의 th로 나뉘어진경우, 스키마네임에 ''이 들어감 -> 예외처리를해줘야함
-  
- 현재 발생한 문제점 :
- 1. DB에 저장이 안되는 테이블이 존재 -> 그러나 eng은 잘 저장이 되어있음. -> eng,kor 비교해서 해결하자
- cris_ct_result_adverse_events_all_cause_mortaity
- cris_ct_result_adverse_events_other_adverse_events
-cris_ct_result_adverse_events_other_adverse_reaction
-cris_ct_result_adverse_events_serious_adverse_events
-cris_ct_result_adverse_events_serious_adverse_reaction
--> Dict 붙여서 해결
-  
-cris_ct_result_outcome_measure_arm_group_category
-cris_ct_result_outcome_measure_arm_group_category_result -> CategoryList, Category List 띄어쓰기 해결
-
-2. cris_ct_result_outcome_measure_desc_eng 에 데이터가 저장이안됨 -> 코드수정해야함 -> indentation 수정으로 해결
-
-  3. mortaity -> mortaㅣity 오타수정 ...> 할필요 없음.. cris데이터오류였음
-
-
-  ```
-  
-</details>
-  
-<details>
-  
-<summary>20230329</summary>
-  
-  ```
-  
-  새로운 모델로 크롤링하고 DB에 넣기 -> 데이터 손실이 있나 확인하기
-  
-  cris_ct_result_adverse_events_serious_adverse_reaction
-  cris_ct_result_participant_flow_arm_group_failed_reason 에서 다시 문제 발생, 데이터 저장이 안됨
-  
-  cris_ct_all_overview 에 한해서 메소드가 get_rows_cris_all_overview 임.
-  
-  할 일 :
-  1)
-medic-dev-2022.c6dzc5dnqf69.ap-northeast-2.rds.amazonaws.com
-서버, RAW DB 접속
-
- 
-
-2)
-뒤에 알고리듬 부분, dev_fe_이런것처럼 cris_ct로 시작하는 것 제외
-cris_ct_latest_approved_overvie, _eng 제외
-하여 모든 table drop 후
-
- 
-
-3) 2에서 제외한 테이블을 제외하고 cris_eng.sql, cris_kor.sql 로
-테이블 생성
-
- 
-
-4) scraper_manager.py -model=cris -insert=yes -start_date=
-를 실행하여
-기존 cris 데이터 + cris result 데이터 수집
-  
-
-  
-  ```
-  
-  
-</details>
+<summary>week6</summary>
 
 <details>
 
-<summary>20230330</summary>
+<summary>20230404</summary>
 
 ```
-1. integration folder의 func.py를 참고하여 cris_seq를 이용하고 있는 부분을 모두 분석
 
- 
-
-2. 해당 파트를 KCTId로 대체
-
- 
-
-3. RAW 데이터베이스에서 CRIS 테이블들은 KCTId를 primary key로 사용하도록 변경
---> cris_seq를 그냥 날릴 것인지 아니면 그냥 property로 가지고 있을 것인지... 고민??
-
- 
-
-4. REFINE을 다시 한번 돌려야 함 --> 도연님께 부탁
+  refiner.py 분석!!
   
-현재 DDL에 REFINE 테이블 DDL이 없음 -> 만들  
-
+  fetched_rows : DB에 ct_index테이블 가져옴
+  fetched_rows, fetched_rows[0] = (1, 'NIH', 'NCT00000102', None, datetime.datetime(2023, 3, 14, 10, 55, 33), datetime.datetime(2023, 3, 14, 10, 55, 33))
+  -> (ct_id, source, source_id, sub_id, _, _) 의 형태
+  
+  리턴되는 테이블 : idx_dict, idx_dict['NIH']['NCT...'] = ct_id 의 형태. if CRIS의 경우라면 src_id가 현재 cris_seq, sub_id를 가짐. ct_id는 통합번호. 
+  
+  이후 모듈마다 함수실행. 
+  
+  refine_ct_identification : 각 임상사이트마다 RAW데이터베이스 접근후 데이터 가져옴.
 
 ```
+
+
 </details>
 
 
-  <details>
-  
-    <summary>20230331</summary>
-    
-    ```
-    scraper -> refine
-    REFINE 의 순서 : init 에서 _get_in_memory_table 호출
-    
-    
-    
-    
-    
-    
-    ```
-  
-  </details>
-  
-  
 </details>
+
+
 
 </details>
 
