@@ -926,6 +926,19 @@ my daily report
 RAW.cris테이블을 싹다 seq날려서 새롭게 받자.
 REFINE 에러나는 DDL수정.
   
+-- refine.ct_arms_intervention definition
+
+CREATE TABLE `ct_arms_intervention` (
+  `ct_id` int NOT NULL,
+  `ais_id` int NOT NULL,
+  `category` json DEFAULT NULL,
+  `name` text,
+  `description` text,
+  `synonym` json DEFAULT NULL,
+  `create_date` datetime NOT NULL,
+  `update_date` datetime NOT NULL,
+  PRIMARY KEY (`ct_id`,`ais_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
   
   
 
@@ -935,6 +948,40 @@ REFINE 에러나는 DDL수정.
 
 
 </details>
+
+<details>
+
+<summary>20230406/summary>
+
+```
+
+NEW DDL : 
+  
+-- refine.ct_arms_intervention definition
+
+CREATE TABLE `ct_arms_intervention` (
+  `ct_id` int NOT NULL,
+  `ais_id` int NOT NULL,
+  `category` json DEFAULT NULL,
+  `name` text,
+  `description` text,
+  `synonym` json DEFAULT NULL,
+  `create_date` datetime NOT NULL,
+  `update_date` datetime NOT NULL,
+  PRIMARY KEY (`ct_id`,`ais_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  
+TODO : 
+
+  
+
+  
+
+```
+
+
+</details>
+
 
 </details>
 
