@@ -913,6 +913,8 @@ my daily report
   
   @global_process의 의미 파악하기.
   decorator로 함수를 인자로받음. 
+  
+  처음 실행시 refiner는 get in memory table을 호출하는데, 이때 로컬 DB에는 ct_index 테이블이 없기 때문에, 새로 만들어줘야함.
 
 ```
 
