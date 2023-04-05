@@ -915,6 +915,21 @@ my daily report
   decorator로 함수를 인자로받음. 
   
   처음 실행시 refiner는 get in memory table을 호출하는데, 이때 로컬 DB에는 ct_index 테이블이 없기 때문에, 새로 만들어줘야함.
+  이후 리턴값으로 현재 갖고있는 ct data들을 저장하는 딕셔너리를 리턴함. (ct_index에 정보들)
+  현재 ct_index는 cris데이터를 cris_seq으로 구분하기때문에, 이를 KCT_Id로 대체할경우, 여러개의 KCT_Id를 갖는 데이터가 생길수 있음.
+  -> 그러므로 cris데이터를 삭제해야하는데, 이럴경우 ct_id에 공백이 생기기때문에, 처음부터 다시 refine해야함.
+  
+  만약 cris데이터가 갱신되면, 같은 KCT_Id지만 새로운 cris_seq이 발급됨. 이 경우 raw데이터베이스에는 KCT_Id당 여러개의 데이터가 생길수있음. (PRI_KEY가 cris_seq 이기 때문) -> 
+  1. 만약 이때 KCT_Id 가 겹치므로 duplicate하지 않고 과거 데이터를 유지할경우[현재기준], refine시 cris_seq가 필수적임
+  2. 그러나 갱신할경우, 즉 KCT_Id가 PRI_KEY가 될 경우 refine또한 갱신된 KCT_Id 에 대하여 다시 데이터를 갱신해줄 필요가 있음. 이 경우 refine에게 KCT_Id가 갱신되었음을 알려줘야함. -> 이문제는 애초에 update날짜로 진행하기때문에, 고려해줄필요가 없음.
+  
+RAW.cris테이블을 싹다 seq날려서 새롭게 받자.
+REFINE 에러나는 DDL수정.
+  
+  
+  
+
+  
 
 ```
 
