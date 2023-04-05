@@ -912,6 +912,7 @@ my daily report
   첫번째 모듈은 IdentificationModule, 첫번째 모듈은 3개의 딕셔너리를 갖고있으며, 첫번째 요소가 ct_identification임.
   
   @global_process의 의미 파악하기.
+  decorator로 함수를 인자로받음. 
 
 ```
 
