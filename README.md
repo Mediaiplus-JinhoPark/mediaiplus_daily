@@ -902,6 +902,21 @@ my daily report
 
 </details>
 
+<details>
+
+<summary>20230405</summary>
+
+```
+
+  refiner에서 각 모듈의 요소는 dict이며, 각dict에는 스키마와 테이블네임, 메소드정보가 들어 있음.
+  첫번째 모듈은 IdentificationModule, 첫번째 모듈은 3개의 딕셔너리를 갖고있으며, 첫번째 요소가 ct_identification임.
+  
+  @global_process의 의미 파악하기.
+
+```
+
+
+</details>
 
 </details>
 
