@@ -972,10 +972,11 @@ CREATE TABLE `ct_arms_intervention` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
   
 TODO : 
+1. Modify DDL for cris_kor, cris_eng to dropout cris_seq scheme
+2. Modify crisct.utils to make KCT_Id as PRI KEY 
 
-  
-
-  
+이경우 dev_fe_ctx_cris_ct 의 테이블은 어떻게 처리해야하는지?
+크롤링시에는 기존의방법을 사용하되, 데이터베이스에 저장할때 cris_seq만 누락시킴
 
 ```
 
