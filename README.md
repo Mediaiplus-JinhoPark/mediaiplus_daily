@@ -978,6 +978,13 @@ TODO :
 이경우 dev_fe_ctx_cris_ct 의 테이블은 어떻게 처리해야하는지?
 크롤링시에는 기존의방법을 사용하되, 데이터베이스에 저장할때 cris_seq만 누락시킴
 
+로컬에서 DB로 접근할때 안되는거 수정하는법:
+
+1. import pymysql -> import mysql.connector 
+2. conn에서 conn = mysql.connector.connect(host=HOST, port=PORT, user=USER_NAME, passwd=PASSWORD, db=DB_NAME)
+3. cursor = conn.cursor(prepared=True)
+
+
 ```
 
 
