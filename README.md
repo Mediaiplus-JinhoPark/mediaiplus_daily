@@ -951,7 +951,7 @@ CREATE TABLE `ct_arms_intervention` (
 
 <details>
 
-<summary>20230406/summary>
+<summary>20230406</summary>
 
 ```
 
