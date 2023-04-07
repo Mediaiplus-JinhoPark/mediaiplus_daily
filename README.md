@@ -990,6 +990,24 @@ TODO :
 
 </details>
 
+<details>
+
+<summary>20230407</summary>
+
+```
+
+현재 cris_seq 스키마를 dropout하는데 성공하였고, DB에 잘 저장이됨을 확인함.
+여기서 질문점
+
+DDL의 알고리즘 사용해야하나?
+dev_fe, latest_approved 사용유무?
+
+
+```
+
+</details>
+
+
 
 </details>
 
