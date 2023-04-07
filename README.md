@@ -1002,6 +1002,8 @@ TODO :
 DDL의 알고리즘 사용해야하나?
 dev_fe, latest_approved 사용유무?
 
+  
+1409 : outcome measure가 없는 경우도 존재함
 
 ```
 
