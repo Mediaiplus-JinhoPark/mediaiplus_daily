@@ -879,137 +879,155 @@ my daily report
 
 <summary>week6</summary>
 
-<details>
-
-<summary>20230404</summary>
-
-```
-
-  refiner.py 분석!!
-  
-  fetched_rows : DB에 ct_index테이블 가져옴
-  fetched_rows, fetched_rows[0] = (1, 'NIH', 'NCT00000102', None, datetime.datetime(2023, 3, 14, 10, 55, 33), datetime.datetime(2023, 3, 14, 10, 55, 33))
-  -> (ct_id, source, source_id, sub_id, _, _) 의 형태
-  
-  리턴되는 테이블 : idx_dict, idx_dict['NIH']['NCT...'] = ct_id 의 형태. if CRIS의 경우라면 src_id가 현재 cris_seq, sub_id를 가짐. ct_id는 통합번호. 
-  
-  이후 모듈마다 함수실행. 
-  
-  refine_ct_identification : 각 임상사이트마다 RAW데이터베이스 접근후 데이터 가져옴.
-
-```
-
+> <details>
+> 
+> <summary>20230404</summary>
+> 
+> ```
+> 
+> refiner.py 분석!!
+> 
+> fetched_rows : DB에 ct_index테이블 가져옴
+> fetched_rows, fetched_rows[0] = (1, 'NIH', 'NCT00000102', None, datetime.datetime(2023, 3, 14, 10, 55, 33), datetime.datetime(2023, 3, 14, 10, 55, 33))
+> -> (ct_id, source, source_id, sub_id, _, _) 의 형태
+> 
+> 리턴되는 테이블 : idx_dict, idx_dict['NIH']['NCT...'] = ct_id 의 형태. if CRIS의 경우라면 src_id가 현재 cris_seq, sub_id를 가짐. ct_id는 통합번호. 
+> 
+> 이후 모듈마다 함수실행. 
+> 
+> refine_ct_identification : 각 임상사이트마다 RAW데이터베이스 접근후 데이터 가져옴.
+> 
+> ```
+> 
+> 
+> </details>
+> 
+> <details>
+> 
+> <summary>20230405</summary>
+> 
+> ```
+> 
+> refiner에서 각 모듈의 요소는 dict이며, 각dict에는 스키마와 테이블네임, 메소드정보가 들어 있음.
+> 첫번째 모듈은 IdentificationModule, 첫번째 모듈은 3개의 딕셔너리를 갖고있으며, 첫번째 요소가 ct_identification임.
+> 
+> @global_process의 의미 파악하기.
+> decorator로 함수를 인자로받음. 
+> 
+> 처음 실행시 refiner는 get in memory table을 호출하는데, 이때 로컬 DB에는 ct_index 테이블이 없기 때문에, 새로 만들어줘야함.
+> 이후 리턴값으로 현재 갖고있는 ct data들을 저장하는 딕셔너리를 리턴함. (ct_index에 정보들)
+> 현재 ct_index는 cris데이터를 cris_seq으로 구분하기때문에, 이를 KCT_Id로 대체할경우, 여러개의 KCT_Id를 갖는 데이터가 생길수 있음.
+> -> 그러므로 cris데이터를 삭제해야하는데, 이럴경우 ct_id에 공백이 생기기때문에, 처음부터 다시 refine해야함.
+> 
+> 만약 cris데이터가 갱신되면, 같은 KCT_Id지만 새로운 cris_seq이 발급됨. 이 경우 raw데이터베이스에는 KCT_Id당 여러개의 데이터가 생길수있음. (PRI_KEY가 cris_seq 이기 때문) -> 
+> 1. 만약 이때 KCT_Id 가 겹치므로 duplicate하지 않고 과거 데이터를 유지할경우[현재기준], refine시 cris_seq가 필수적임
+> 2. 그러나 갱신할경우, 즉 KCT_Id가 PRI_KEY가 될 경우 refine또한 갱신된 KCT_Id 에 대하여 다시 데이터를 갱신해줄 필요가 있음. 이 경우 refine에게 KCT_Id가 갱신되었음을 알려줘야함. -> 이문제는 애초에 update날짜로 진행하기때문에, 고려해줄필요가 없음.
+> 
+> RAW.cris테이블을 싹다 seq날려서 새롭게 받자.
+> REFINE 에러나는 DDL수정.
+> 
+> -- refine.ct_arms_intervention definition
+> 
+> CREATE TABLE `ct_arms_intervention` (
+> `ct_id` int NOT NULL,
+> `ais_id` int NOT NULL,
+> `category` json DEFAULT NULL,
+> `name` text,
+> `description` text,
+> `synonym` json DEFAULT NULL,
+> `create_date` datetime NOT NULL,
+> `update_date` datetime NOT NULL,
+> PRIMARY KEY (`ct_id`,`ais_id`)
+> ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+> 
+> 
+> 
+> 
+> 
+> ```
+> 
+> 
+> </details>
+> 
+> <details>
+> 
+> <summary>20230406</summary>
+> 
+> ```
+> 
+> NEW DDL : 
+> 
+> -- refine.ct_arms_intervention definition
+> 
+> CREATE TABLE `ct_arms_intervention` (
+> `ct_id` int NOT NULL,
+> `ais_id` int NOT NULL,
+> `category` json DEFAULT NULL,
+> `name` text,
+> `description` text,
+> `synonym` json DEFAULT NULL,
+> `create_date` datetime NOT NULL,
+> `update_date` datetime NOT NULL,
+> PRIMARY KEY (`ct_id`,`ais_id`)
+> ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+> 
+> TODO : 
+> 1. Modify DDL for cris_kor, cris_eng to dropout cris_seq scheme
+> 2. Modify crisct.utils to make KCT_Id as PRI KEY 
+> 
+> 이경우 dev_fe_ctx_cris_ct 의 테이블은 어떻게 처리해야하는지?
+> 크롤링시에는 기존의방법을 사용하되, 데이터베이스에 저장할때 cris_seq만 누락시킴
+> 
+> 로컬에서 DB로 접근할때 안되는거 수정하는법:
+> 
+> 1. import pymysql -> import mysql.connector 
+> 2. conn에서 conn = mysql.connector.connect(host=HOST, port=PORT, user=USER_NAME, passwd=PASSWORD, db=DB_NAME)
+> 3. cursor = conn.cursor(prepared=True)
+> 
+> 
+> ```
+> 
+> 
+> </details>
+> 
+> <details>
+> 
+> <summary>20230407</summary>
+> 
+> ```
+> 
+> 현재 cris_seq 스키마를 dropout하는데 성공하였고, DB에 잘 저장이됨을 확인함.
+> 여기서 질문점
+> 
+> DDL의 알고리즘 사용해야하나?
+> dev_fe, latest_approved 사용유무?
+> 
+> 
+> 1409 : outcome measure가 없는 경우도 존재함
+> 
+> ```
+> 
+> </details>
 
 </details>
 
-<details>
-
-<summary>20230405</summary>
-
-```
-
-  refiner에서 각 모듈의 요소는 dict이며, 각dict에는 스키마와 테이블네임, 메소드정보가 들어 있음.
-  첫번째 모듈은 IdentificationModule, 첫번째 모듈은 3개의 딕셔너리를 갖고있으며, 첫번째 요소가 ct_identification임.
-  
-  @global_process의 의미 파악하기.
-  decorator로 함수를 인자로받음. 
-  
-  처음 실행시 refiner는 get in memory table을 호출하는데, 이때 로컬 DB에는 ct_index 테이블이 없기 때문에, 새로 만들어줘야함.
-  이후 리턴값으로 현재 갖고있는 ct data들을 저장하는 딕셔너리를 리턴함. (ct_index에 정보들)
-  현재 ct_index는 cris데이터를 cris_seq으로 구분하기때문에, 이를 KCT_Id로 대체할경우, 여러개의 KCT_Id를 갖는 데이터가 생길수 있음.
-  -> 그러므로 cris데이터를 삭제해야하는데, 이럴경우 ct_id에 공백이 생기기때문에, 처음부터 다시 refine해야함.
-  
-  만약 cris데이터가 갱신되면, 같은 KCT_Id지만 새로운 cris_seq이 발급됨. 이 경우 raw데이터베이스에는 KCT_Id당 여러개의 데이터가 생길수있음. (PRI_KEY가 cris_seq 이기 때문) -> 
-  1. 만약 이때 KCT_Id 가 겹치므로 duplicate하지 않고 과거 데이터를 유지할경우[현재기준], refine시 cris_seq가 필수적임
-  2. 그러나 갱신할경우, 즉 KCT_Id가 PRI_KEY가 될 경우 refine또한 갱신된 KCT_Id 에 대하여 다시 데이터를 갱신해줄 필요가 있음. 이 경우 refine에게 KCT_Id가 갱신되었음을 알려줘야함. -> 이문제는 애초에 update날짜로 진행하기때문에, 고려해줄필요가 없음.
-  
-RAW.cris테이블을 싹다 seq날려서 새롭게 받자.
-REFINE 에러나는 DDL수정.
-  
--- refine.ct_arms_intervention definition
-
-CREATE TABLE `ct_arms_intervention` (
-  `ct_id` int NOT NULL,
-  `ais_id` int NOT NULL,
-  `category` json DEFAULT NULL,
-  `name` text,
-  `description` text,
-  `synonym` json DEFAULT NULL,
-  `create_date` datetime NOT NULL,
-  `update_date` datetime NOT NULL,
-  PRIMARY KEY (`ct_id`,`ais_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-  
-  
-
-  
-
-```
-
-
-</details>
+week7
 
 <details>
 
-<summary>20230406</summary>
-
-```
-
-NEW DDL : 
-  
--- refine.ct_arms_intervention definition
-
-CREATE TABLE `ct_arms_intervention` (
-  `ct_id` int NOT NULL,
-  `ais_id` int NOT NULL,
-  `category` json DEFAULT NULL,
-  `name` text,
-  `description` text,
-  `synonym` json DEFAULT NULL,
-  `create_date` datetime NOT NULL,
-  `update_date` datetime NOT NULL,
-  PRIMARY KEY (`ct_id`,`ais_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-  
-TODO : 
-1. Modify DDL for cris_kor, cris_eng to dropout cris_seq scheme
-2. Modify crisct.utils to make KCT_Id as PRI KEY 
-
-이경우 dev_fe_ctx_cris_ct 의 테이블은 어떻게 처리해야하는지?
-크롤링시에는 기존의방법을 사용하되, 데이터베이스에 저장할때 cris_seq만 누락시킴
-
-로컬에서 DB로 접근할때 안되는거 수정하는법:
-
-1. import pymysql -> import mysql.connector 
-2. conn에서 conn = mysql.connector.connect(host=HOST, port=PORT, user=USER_NAME, passwd=PASSWORD, db=DB_NAME)
-3. cursor = conn.cursor(prepared=True)
-
-
-```
-
-
-</details>
+<summary>week7</summary>
 
 <details>
 
-<summary>20230407</summary>
+<summary>0230410</summary>
+
+
 
 ```
 
-현재 cris_seq 스키마를 dropout하는데 성공하였고, DB에 잘 저장이됨을 확인함.
-여기서 질문점
-
-DDL의 알고리즘 사용해야하나?
-dev_fe, latest_approved 사용유무?
-
-  
-1409 : outcome measure가 없는 경우도 존재함
+123
 
 ```
-
-</details>
-
-
 
 </details>
 
