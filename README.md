@@ -996,7 +996,7 @@ my daily report
 > 
 > ```
 > 
-> 현재 cris_seq 스키마를 dropout하는데 성공하였고, DB에 잘 저장이됨을 확인함.
+> 현재 cris_seq 스키마를 dropout하는데 성공하였고, DB에 잘 저장됨을 확인.
 > 여기서 질문점
 > 
 > DDL의 알고리즘 사용해야하나?
@@ -1024,8 +1024,8 @@ my daily report
 
 
 ```
-
-123
+grant_idx -> ct index 부여
+refine DDL수정 -> ct, other 분리
 
 ```
 
