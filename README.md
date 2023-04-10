@@ -1033,9 +1033,9 @@ import pymysql : server
 import mysql.connector : local
 
 local 에서 DB삽입 작업시 mysql.connector를 사용하지만 이경우 execute의 리턴값이 0,1이아닌 None 이 되기때문에, assertion에러가 발생함
-일단은 pymysql로 connect하자
+일단은 pymysql로 connect하자 -> assertion구문을 빼야할듯?
 
-latest_approved 테이블에 대한 메서드가 잘못됨 -> 
+latest_approved 테이블에 대한 메서드가 잘못됨 -> 수정해야함
 
 
 ```
