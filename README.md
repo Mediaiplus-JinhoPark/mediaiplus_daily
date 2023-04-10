@@ -1026,6 +1026,7 @@ my daily report
 ```
 grant_idx -> ct index 부여
 refine DDL수정 -> ct, other 분리
+validation 수정하기
 
 ```
 
