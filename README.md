@@ -1019,7 +1019,7 @@ my daily report
 <!-- >> -->
 <details>
 
-<summary>0230410</summary>
+<summary>20230410</summary>
 
 
 
@@ -1053,13 +1053,25 @@ latest_approved 테이블에 대한 메서드가 잘못됨 -> 수정해야함
 commit 완료 : RAW데이터베이스의 테이블에서, cris_seq dropout
 
 
-
 ```
 
 
 
 </details>
 
+<details>
+
+<summary>20230413</summary>
+
+
+```
+grant_idx -> assert 에러
+
+```
+
+
+
+</details>
 
 </details>
 
