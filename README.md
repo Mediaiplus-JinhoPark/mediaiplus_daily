@@ -1061,11 +1061,26 @@ commit 완료 : RAW데이터베이스의 테이블에서, cris_seq dropout
 
 <details>
 
-<summary>20230413</summary>
+<summary>20230412</summary>
 
 
 ```
 grant_idx -> assert 에러
+
+```
+
+
+
+</details>
+
+<details>
+
+<summary>20230413</summary>
+
+
+```
+오늘 할 일 : mediaiplus server DB에 insert 
+-> mysql.connector로 변경하기
 
 ```
 
