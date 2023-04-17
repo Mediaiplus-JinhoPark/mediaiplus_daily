@@ -1089,6 +1089,7 @@ my daily report
 > 
 > </details>
 
+</details>
 <!-- week8 -->
 
 <details>
@@ -1122,8 +1123,6 @@ cris데이터 수집시, 갱신된데이터가 아닌 최신의 데이터는 받
 
 </details>
   
-</details>
-
 </details>
 
 
