@@ -1101,16 +1101,27 @@ my daily report
 <summary>20230417</summary>
 
 ```
-1213
-
-
+24서버에 RAW데이터베이스만 채우면됨.
+  현재 cris_lang=K 데이터완료.
+  
 
 ```
 
 
 </details>
 
+<details>
 
+<summary>20230418</summary>
+
+```
+cris데이터 수집시, 갱신된데이터가 아닌 최신의 데이터는 받아오지 못함 : 등록일을 기준으로도 받아와야함.
+
+```
+
+
+</details>
+  
 </details>
 
 </details>
