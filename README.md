@@ -1140,6 +1140,18 @@ my daily report
 > 
 > 
 > </details>
+> 
+> <details>
+> 
+> <summary>20230419~20230421</summary>
+> 
+> ```
+> WIS2023 (World IT Show 2023)에 전시자로 참가하였습니다!
+> 
+> ```
+> 
+> 
+> </details>
   
 </details>
 
@@ -1155,7 +1167,8 @@ my daily report
 <summary>20230424</summary>
 
 ```
-
+analyzer.py 만들기
+  
 ```
 </details>
 
