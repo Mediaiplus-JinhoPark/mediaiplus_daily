@@ -1090,6 +1090,7 @@ my daily report
 > </details>
 
 </details>
+
 <!-- week8 -->
 
 <details>
@@ -1097,49 +1098,65 @@ my daily report
 <summary>week8</summary>
 <!-- >> -->
 
+> <details>
+> 
+> <summary>20230417</summary>
+> 
+> ```
+> 24서버에 RAW데이터베이스만 채우면됨.
+>   현재 cris_lang=K 데이터완료.
+>   
+> 
+> ```
+> 
+> 
+> </details>
+> 
+> <details>
+> 
+> <summary>20230418</summary>
+> 
+> ```
+> cris데이터 수집시, 갱신된데이터가 아닌 최신의 데이터는 받아오지 못함 : 등록일을 기준으로도 받아와야함.
+> -> 해결
+>   
+> What is your suggestion? What we should do?
+> analyzer 와 같이 별도의 python 파일 만들고
+> 일간, 주간, 월간 (update_date 기준)으로
+> 뽑아낼 수 있는 ("풍부한") 통계 
+> 
+> 두 가지 parameter가 사용될 수 있음
+> 
+> REFINE process를 돌렸을 때 update_date 날짜를 기준으로
+> last_update_post_date 기준으로
+>  
+> 콘텐츠 자체는 생각을 해봐야.. 
+> 
+> 결과 다 뽑고나서 engineering 작업
+> 결과를 pdf한다음
+> 얘를 메일로 쏘면 best
+> 
+> ```
+> 
+> 
+> </details>
+  
+</details>
+
+<!-- week9 -->
+
 <details>
 
-<summary>20230417</summary>
-
-```
-24서버에 RAW데이터베이스만 채우면됨.
-  현재 cris_lang=K 데이터완료.
-  
-
-```
-
-
-</details>
+<summary>week9</summary>
+<!-- >> -->
 
 <details>
 
-<summary>20230418</summary>
-
-```
-cris데이터 수집시, 갱신된데이터가 아닌 최신의 데이터는 받아오지 못함 : 등록일을 기준으로도 받아와야함.
--> 해결
-  
-What is your suggestion? What we should do?
-analyzer 와 같이 별도의 python 파일 만들고
-일간, 주간, 월간 (update_date 기준)으로
-뽑아낼 수 있는 ("풍부한") 통계 
-
-두 가지 parameter가 사용될 수 있음
-
-REFINE process를 돌렸을 때 update_date 날짜를 기준으로
-last_update_post_date 기준으로
- 
-콘텐츠 자체는 생각을 해봐야.. 
-
-결과 다 뽑고나서 engineering 작업
-결과를 pdf한다음
-얘를 메일로 쏘면 best
+<summary>20230424</summary>
 
 ```
 
-
-</details>
-  
+```
 </details>
 
-
+</details>
