@@ -1168,6 +1168,8 @@ my daily report
 
 ```
 analyzer.py 만들기
+
+ct_status의 데이터들을 불러와야함 -> 13번째 스키마, 즉 last_update_post_date가 날짜 interval 안에 있는지 체크
   
 ```
 </details>
