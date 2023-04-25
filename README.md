@@ -1174,4 +1174,15 @@ ct_status의 데이터들을 불러와야함 -> 13번째 스키마, 즉 last_upd
 ```
 </details>
 
+<details>
+
+<summary>20230425</summary>
+
+```
+analyzer는 년단위, 월단위, 일단위로 데이터를 분석한 결과를 시각화하는것 : 도넛차트, 히스토그램
+현재 issue : 날짜에서 datetime을 사용하는데 이 때 윤년이 껴있을경우 일년기준을 어떻게 잡아야하는지, 이외에도 예외케이스들 처리해야
+  
+```
+</details>
+
 </details>
