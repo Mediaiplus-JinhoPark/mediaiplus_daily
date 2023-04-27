@@ -1206,6 +1206,8 @@ analyzer는 년단위, 월단위, 일단위로 데이터를 분석한 결과를 
   
 Notations
 머신러닝에서는 주로 x를 input variable로 사용함. feature라고도하고 input feature라고도함
+input, feature 을 받아서 예측을하여 output이 나올텐데, 이 때 output = estimated value, prediction y-hat으로 표기하고, 예측해주는 함수 f 를 model, hypothesis로 부름 
+Then, how to represent f(hypothesis)?
   
 ```
 </details>
