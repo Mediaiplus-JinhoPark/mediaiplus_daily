@@ -1195,4 +1195,17 @@ analyzer는 년단위, 월단위, 일단위로 데이터를 분석한 결과를 
 ```
 </details>
 
+<details>
+
+<summary>20230427</summary>
+
+```
+딥러닝 :
+지도학습 : regression, classification
+비지도학습 : clustering, anomaly detection, dimensionality reduction
+  
+```
+</details>
+
+
 </details>
