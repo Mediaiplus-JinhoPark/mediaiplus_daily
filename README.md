@@ -1204,6 +1204,7 @@ analyzer는 년단위, 월단위, 일단위로 데이터를 분석한 결과를 
 지도학습 : regression, classification
 비지도학습 : clustering, anomaly detection, dimensionality reduction
   
+Notations
 머신러닝에서는 주로 x를 input variable로 사용함. feature라고도하고 input feature라고도함
   
 ```
