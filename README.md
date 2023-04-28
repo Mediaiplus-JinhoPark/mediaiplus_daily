@@ -1212,5 +1212,15 @@ Then, how to represent f(hypothesis)?
 ```
 </details>
 
+<details>
 
+<summary>20230428</summary>
+
+```
+ct_design에서 받아온 테이블을 dictionary로 변환 : ct_id로 해싱됨.
+phase, study_type에 해당하는 도넛차트를 만들기 위해 label리스트, 각 label에 해당하는 data의 개수를 추출함.
+  
+```
+</details>
+  
 </details>
