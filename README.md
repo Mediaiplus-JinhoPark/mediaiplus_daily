@@ -1162,65 +1162,83 @@ my daily report
 <summary>week9</summary>
 <!-- >> -->
 
+> <details>
+> 
+> <summary>20230424</summary>
+> 
+> ```
+> analyzer.py 만들기
+> 
+> ct_status의 데이터들을 불러와야함 -> 13번째 스키마, 즉 last_update_post_date가 날짜 interval 안에 있는지 체크
+>   
+> ```
+> </details>
+> 
+> <details>
+> 
+> <summary>20230425</summary>
+> 
+> ```
+> analyzer는 년단위, 월단위, 일단위로 데이터를 분석한 결과를 시각화하는것 : 도넛차트, 히스토그램
+> 현재 issue : 날짜에서 datetime을 사용하는데 이 때 윤년이 껴있을경우 일년기준을 어떻게 잡아야하는지, 이외에도 예외케이스들 처리해야함
+>   
+> ```
+> </details>
+> 
+> <details>
+> 
+> <summary>20230426</summary>
+> 
+> ```
+> 약물데이터 검수하기 1일차
+>   
+> ```
+> </details>
+> 
+> <details>
+> 
+> <summary>20230427</summary>
+> 
+> ```
+> 딥러닝 :
+> 지도학습 : regression, classification
+> 비지도학습 : clustering, anomaly detection, dimensionality reduction
+>   
+> Notations
+> 머신러닝에서는 주로 x를 input variable로 사용함. feature라고도하고 input feature라고도함
+> input, feature 을 받아서 예측을하여 output이 나올텐데, 이 때 output = estimated value, prediction y-hat으로 표기하고, 예측해주는 함수 f 를 model, hypothesis로 부름 
+> Then, how to represent f(hypothesis)?
+>   
+> ```
+> </details>
+> 
+> <details>
+> 
+> <summary>20230428</summary>
+> 
+> ```
+> ct_design에서 받아온 테이블을 dictionary로 변환 : ct_id로 해싱됨.
+> phase, study_type에 해당하는 도넛차트를 만들기 위해 label리스트, 각 label에 해당하는 data의 개수를 추출함.
+>   
+> ```
+> </details>
+
+</details>
+  
+  
+<!-- week10 -->
+
 <details>
 
-<summary>20230424</summary>
-
-```
-analyzer.py 만들기
-
-ct_status의 데이터들을 불러와야함 -> 13번째 스키마, 즉 last_update_post_date가 날짜 interval 안에 있는지 체크
-  
-```
-</details>
+<summary>week10</summary>
+<!-- >> -->
 
 <details>
 
-<summary>20230425</summary>
+<summary>week10</summary>
 
-```
-analyzer는 년단위, 월단위, 일단위로 데이터를 분석한 결과를 시각화하는것 : 도넛차트, 히스토그램
-현재 issue : 날짜에서 datetime을 사용하는데 이 때 윤년이 껴있을경우 일년기준을 어떻게 잡아야하는지, 이외에도 예외케이스들 처리해야함
+
+</details>  
   
-```
-</details>
-
-<details>
-
-<summary>20230426</summary>
-
-```
-약물데이터 검수하기 1일차
-  
-```
-</details>
-
-<details>
-
-<summary>20230427</summary>
-
-```
-딥러닝 :
-지도학습 : regression, classification
-비지도학습 : clustering, anomaly detection, dimensionality reduction
-  
-Notations
-머신러닝에서는 주로 x를 input variable로 사용함. feature라고도하고 input feature라고도함
-input, feature 을 받아서 예측을하여 output이 나올텐데, 이 때 output = estimated value, prediction y-hat으로 표기하고, 예측해주는 함수 f 를 model, hypothesis로 부름 
-Then, how to represent f(hypothesis)?
-  
-```
-</details>
-
-<details>
-
-<summary>20230428</summary>
-
-```
-ct_design에서 받아온 테이블을 dictionary로 변환 : ct_id로 해싱됨.
-phase, study_type에 해당하는 도넛차트를 만들기 위해 label리스트, 각 label에 해당하는 data의 개수를 추출함.
-  
-```
-</details>
   
 </details>
