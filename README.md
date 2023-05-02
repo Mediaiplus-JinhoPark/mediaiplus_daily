@@ -1237,7 +1237,9 @@ my daily report
 
 <summary>20230502</summary>
 
-
+약물검수작업 : 중복되는 약물이 있으면 표시하기.
+analyzer : 도넛차트만들기
+  
 </details>  
   
 
