@@ -1237,11 +1237,13 @@ my daily report
 
 <summary>20230502</summary>
 
+```
 약물검수작업 : 중복되는 약물이 있으면 표시하기.
 analyzer : 도넛차트만들기
 색을 지정할때 레이블의 개수만큼 색상리스트에서 랜덤추출하는방법으로 바꾸기
 -> 밸류값이 0인 데이터는 plot해주지 않기위함임.
-  
+```
+
 </details>  
   
 
@@ -1249,6 +1251,11 @@ analyzer : 도넛차트만들기
 
 <summary>20230503</summary>
 
+```
+plot방법: 각 함수마다 labels, values가 필요하고, 하나의 pdf에 plot해야하므로, 모든 labels,values를 인자로받은후 plot을 해주어야함.
+그러므로 각 함수실행시, 리턴값을 labels, values로 리턴하고 labels_list, values_list 리스트에 저장해놔야함.
+
+```
 
 </details>  
   
