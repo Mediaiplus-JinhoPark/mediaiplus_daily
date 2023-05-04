@@ -1259,4 +1259,16 @@ plot방법: 각 함수마다 labels, values가 필요하고, 하나의 pdf에 pl
 
 </details>  
   
+<details>
+
+<summary>20230504</summary>
+
+```
+bar, pie chart만들기 완료.
+메일로 pdf 보내는 작업도 완료.
+
+```
+
+</details>  
+  
 </details>
