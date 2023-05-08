@@ -1233,15 +1233,75 @@ my daily report
 <summary>week10</summary>
 <!-- >> -->
 
+> <details>
+> 
+> <summary>20230502</summary>
+> 
+> ```
+> 약물검수작업 : 중복되는 약물이 있으면 표시하기.
+> analyzer : 도넛차트만들기
+> 색을 지정할때 레이블의 개수만큼 색상리스트에서 랜덤추출하는방법으로 바꾸기
+> -> 밸류값이 0인 데이터는 plot해주지 않기위함임.
+> ```
+> 
+> </details>  
+>   
+> 
+> <details>
+> 
+> <summary>20230503</summary>
+> 
+> ```
+> plot방법: 각 함수마다 labels, values가 필요하고, 하나의 pdf에 plot해야하므로, 모든 labels,values를 인자로받은후 plot을 해주어야함.
+> 그러므로 각 함수실행시, 리턴값을 labels, values로 리턴하고 labels_list, values_list 리스트에 저장해놔야함.
+> 
+> ```
+> 
+> </details>  
+>   
+> <details>
+> 
+> <summary>20230504</summary>
+> 
+> ```
+> bar, pie chart만들기 완료.
+> 메일로 pdf 보내는 작업도 완료.
+> 
+> ```
+> 
+> </details>  
+  
+</details>
+
 <details>
 
-<summary>20230502</summary>
+<summary>week11</summary>
+<!-- >> -->
+
+<details>
+
+<summary>20230508</summary>
 
 ```
-약물검수작업 : 중복되는 약물이 있으면 표시하기.
-analyzer : 도넛차트만들기
-색을 지정할때 레이블의 개수만큼 색상리스트에서 랜덤추출하는방법으로 바꾸기
--> 밸류값이 0인 데이터는 plot해주지 않기위함임.
+draw.io : diagram 그리는 어플리케이션
+
+bokeh.models: 대화형 Bokeh 플롯 구성 요소를 정의하고 처리하는 모듈
+bokeh.palettes: Bokeh 플롯에 대한 색상 팔레트를 생성하는 모듈
+bokeh.io: Bokeh 플롯을 다양한 매체(예: Jupyter 노트북 또는 HTML 파일)에 출력하기 위한 모듈
+bokeh.plotting: Bokeh 플롯을 생성하는 모듈
+
+collections.Counter: 리스트에서 항목 발생 횟수를 세는 Python 내장 모듈
+datetime.datetime: 날짜 및 시간을 처리하기 위한 Python 내장 모듈
+konlpy.tag.Okt: 한국어 자연어 처리를 위한 Python 패키지
+
+sklearn.preprocessing.normalize: 데이터 정규화를 위한 모듈
+sklearn.feature_extraction.text.TfidfTransformer: 텍스트를 TF-IDF 라는 벡터화된 표현으로 변환하는 모듈
+sklearn.decomposition.NMF: 비음수 행렬 인수 분해를 수행하는 모듈
+sklearn.decomposition.LatentDirichletAllocation: 잠재 디리클레 할당 주제 모델링을 수행하는 모듈
+sklearn.manifold.TSNE: 차원 축소 기법인 t-SNE(확률적 이웃 임베딩)을 수행하는 모듈
+
+tqdm: 오랜 실행 작업 중 진행 상황을 표시하기 위한 Python 패키지
+
 ```
 
 </details>  
