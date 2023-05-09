@@ -1309,11 +1309,13 @@ tqdm: 오랜 실행 작업 중 진행 상황을 표시하기 위한 Python 패�
 
 <details>
 
-<summary>20230503</summary>
+<summary>20230509</summary>
 
 ```
-plot방법: 각 함수마다 labels, values가 필요하고, 하나의 pdf에 plot해야하므로, 모든 labels,values를 인자로받은후 plot을 해주어야함.
-그러므로 각 함수실행시, 리턴값을 labels, values로 리턴하고 labels_list, values_list 리스트에 저장해놔야함.
+regex로 채팅정보만 추출한 후, tdm matrix만들어줌
+#채팅의 개수 * 단어의 개수 
+#row : 각 채팅에서 각 단어가 나오는 횟수
+#tdm[0][0] : 0번째 채팅에서 '현직' 이 나온 횟수를 의미함.
 
 ```
 
