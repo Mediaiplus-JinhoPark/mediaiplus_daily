@@ -1323,11 +1323,10 @@ regex로 채팅정보만 추출한 후, tdm matrix만들어줌
   
 <details>
 
-<summary>20230504</summary>
+<summary>20230511</summary>
 
 ```
-bar, pie chart만들기 완료.
-메일로 pdf 보내는 작업도 완료.
+tfidf
 
 ```
 
