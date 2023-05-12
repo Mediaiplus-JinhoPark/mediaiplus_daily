@@ -1332,4 +1332,23 @@ tfidf
 
 </details>  
   
+<details>
+
+<summary>20230512</summary>
+
+```
+tf : term frequency
+idf : inverse document frequency
+
+TfidfTransformer :
+  먼저 tf를 구함 : 각 row에서 단어가 몇번나오는지
+  그 이후 idf를 구함 : 각 단어가 전체문서에서 몇개의 문서에서 나왔는지, 이후 log(x/y)+1로 구함
+  이후 L2 norm, numpy.linalg의 norm을 사용하여 구한 후, tf*idf를 구함.
+  이 후 norm으로 나누어주면 됨.
+  
+  
+```
+
+</details>  
+  
 </details>
