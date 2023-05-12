@@ -1327,7 +1327,10 @@ regex로 채팅정보만 추출한 후, tdm matrix만들어줌
 
 ```
 tfidf
-
+  차원축소 
+  PCA
+  nmf
+  
 ```
 
 </details>  
