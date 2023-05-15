@@ -1354,4 +1354,72 @@ TfidfTransformer :
 
 </details>  
   
+
+</details>
+
+<details>
+
+<summary>week12</summary>
+<!-- >> -->
+
+<details>
+
+<summary>20230515</summary>
+
+```
+
+
+```
+
+</details>  
+  
+
+<details>
+
+<summary>20230509</summary>
+
+```
+regex로 채팅정보만 추출한 후, tdm matrix만들어줌
+#채팅의 개수 * 단어의 개수 
+#row : 각 채팅에서 각 단어가 나오는 횟수
+#tdm[0][0] : 0번째 채팅에서 '현직' 이 나온 횟수를 의미함.
+
+```
+
+</details>  
+  
+<details>
+
+<summary>20230511</summary>
+
+```
+tfidf
+  차원축소 
+  PCA
+  nmf
+  
+```
+
+</details>  
+  
+<details>
+
+<summary>20230512</summary>
+
+```
+tf : term frequency
+idf : inverse document frequency
+
+TfidfTransformer :
+  먼저 tf를 구함 : 각 row에서 단어가 몇번나오는지
+  그 이후 idf를 구함 : 각 단어가 전체문서에서 몇개의 문서에서 나왔는지, 이후 log(x/y)+1로 구함
+  이후 L2 norm, numpy.linalg의 norm을 사용하여 구한 후, tf*idf를 구함.
+  이 후 norm으로 나누어주면 됨.
+  
+  
+```
+
+</details>  
+  
+
 </details>
