@@ -1376,13 +1376,10 @@ TfidfTransformer :
 
 <details>
 
-<summary>20230509</summary>
+<summary>20230516</summary>
 
 ```
-regex로 채팅정보만 추출한 후, tdm matrix만들어줌
-#채팅의 개수 * 단어의 개수 
-#row : 각 채팅에서 각 단어가 나오는 횟수
-#tdm[0][0] : 0번째 채팅에서 '현직' 이 나온 횟수를 의미함.
+analyzer 개선
 
 ```
 
@@ -1390,13 +1387,13 @@ regex로 채팅정보만 추출한 후, tdm matrix만들어줌
   
 <details>
 
-<summary>20230511</summary>
+<summary>20230517</summary>
 
 ```
-tfidf
-  차원축소 
-  PCA
-  nmf
+tfidf복습하기
+: TF * IDF 
+  IDF = log(전체 docu / 특정 단어가 나온 docu) + 1
+  TF*IDF후 L2norm 으로 나눠주기
   
 ```
 
