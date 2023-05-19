@@ -1401,18 +1401,12 @@ tfidf복습하기
   
 <details>
 
-<summary>20230512</summary>
+<summary>20230519</summary>
 
 ```
-tf : term frequency
-idf : inverse document frequency
-
-TfidfTransformer :
-  먼저 tf를 구함 : 각 row에서 단어가 몇번나오는지
-  그 이후 idf를 구함 : 각 단어가 전체문서에서 몇개의 문서에서 나왔는지, 이후 log(x/y)+1로 구함
-  이후 L2 norm, numpy.linalg의 norm을 사용하여 구한 후, tf*idf를 구함.
-  이 후 norm으로 나누어주면 됨.
-  
+nmf : W*H 로 행렬분해
+  non-negative한 원소들로 분해해야함
+  nmf : V를 분해한다고 할 때, V=m*n 이라 하면 W = m*p, H = p*n 으로 분해. 
   
 ```
 
