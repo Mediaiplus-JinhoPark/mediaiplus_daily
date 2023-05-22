@@ -1278,81 +1278,81 @@ my daily report
 <summary>week11</summary>
 <!-- >> -->
 
-<details>
-
-<summary>20230508</summary>
-
-```
-draw.io : diagram 그리는 어플리케이션
-
-bokeh.models: 대화형 Bokeh 플롯 구성 요소를 정의하고 처리하는 모듈
-bokeh.palettes: Bokeh 플롯에 대한 색상 팔레트를 생성하는 모듈
-bokeh.io: Bokeh 플롯을 다양한 매체(예: Jupyter 노트북 또는 HTML 파일)에 출력하기 위한 모듈
-bokeh.plotting: Bokeh 플롯을 생성하는 모듈
-
-collections.Counter: 리스트에서 항목 발생 횟수를 세는 Python 내장 모듈
-datetime.datetime: 날짜 및 시간을 처리하기 위한 Python 내장 모듈
-konlpy.tag.Okt: 한국어 자연어 처리를 위한 Python 패키지
-
-sklearn.preprocessing.normalize: 데이터 정규화를 위한 모듈
-sklearn.feature_extraction.text.TfidfTransformer: 텍스트를 TF-IDF 라는 벡터화된 표현으로 변환하는 모듈
-sklearn.decomposition.NMF: 비음수 행렬 인수 분해를 수행하는 모듈
-sklearn.decomposition.LatentDirichletAllocation: 잠재 디리클레 할당 주제 모델링을 수행하는 모듈
-sklearn.manifold.TSNE: 차원 축소 기법인 t-SNE(확률적 이웃 임베딩)을 수행하는 모듈
-
-tqdm: 오랜 실행 작업 중 진행 상황을 표시하기 위한 Python 패키지
-
-```
-
-</details>  
-  
-
-<details>
-
-<summary>20230509</summary>
-
-```
-regex로 채팅정보만 추출한 후, tdm matrix만들어줌
-#채팅의 개수 * 단어의 개수 
-#row : 각 채팅에서 각 단어가 나오는 횟수
-#tdm[0][0] : 0번째 채팅에서 '현직' 이 나온 횟수를 의미함.
-
-```
-
-</details>  
-  
-<details>
-
-<summary>20230511</summary>
-
-```
-tfidf
-  차원축소 
-  PCA
-  nmf
-  
-```
-
-</details>  
-  
-<details>
-
-<summary>20230512</summary>
-
-```
-tf : term frequency
-idf : inverse document frequency
-
-TfidfTransformer :
-  먼저 tf를 구함 : 각 row에서 단어가 몇번나오는지
-  그 이후 idf를 구함 : 각 단어가 전체문서에서 몇개의 문서에서 나왔는지, 이후 log(x/y)+1로 구함
-  이후 L2 norm, numpy.linalg의 norm을 사용하여 구한 후, tf*idf를 구함.
-  이 후 norm으로 나누어주면 됨.
-  
-  
-```
-
-</details>  
+> <details>
+> 
+> <summary>20230508</summary>
+> 
+> ```
+> draw.io : diagram 그리는 어플리케이션
+> 
+> bokeh.models: 대화형 Bokeh 플롯 구성 요소를 정의하고 처리하는 모듈
+> bokeh.palettes: Bokeh 플롯에 대한 색상 팔레트를 생성하는 모듈
+> bokeh.io: Bokeh 플롯을 다양한 매체(예: Jupyter 노트북 또는 HTML 파일)에 출력하기 위한 모듈
+> bokeh.plotting: Bokeh 플롯을 생성하는 모듈
+> 
+> collections.Counter: 리스트에서 항목 발생 횟수를 세는 Python 내장 모듈
+> datetime.datetime: 날짜 및 시간을 처리하기 위한 Python 내장 모듈
+> konlpy.tag.Okt: 한국어 자연어 처리를 위한 Python 패키지
+> 
+> sklearn.preprocessing.normalize: 데이터 정규화를 위한 모듈
+> sklearn.feature_extraction.text.TfidfTransformer: 텍스트를 TF-IDF 라는 벡터화된 표현으로 변환하는 모듈
+> sklearn.decomposition.NMF: 비음수 행렬 인수 분해를 수행하는 모듈
+> sklearn.decomposition.LatentDirichletAllocation: 잠재 디리클레 할당 주제 모델링을 수행하는 모듈
+> sklearn.manifold.TSNE: 차원 축소 기법인 t-SNE(확률적 이웃 임베딩)을 수행하는 모듈
+> 
+> tqdm: 오랜 실행 작업 중 진행 상황을 표시하기 위한 Python 패키지
+> 
+> ```
+> 
+> </details>  
+>   
+> 
+> <details>
+> 
+> <summary>20230509</summary>
+> 
+> ```
+> regex로 채팅정보만 추출한 후, tdm matrix만들어줌
+> #채팅의 개수 * 단어의 개수 
+> #row : 각 채팅에서 각 단어가 나오는 횟수
+> #tdm[0][0] : 0번째 채팅에서 '현직' 이 나온 횟수를 의미함.
+> 
+> ```
+> 
+> </details>  
+>   
+> <details>
+> 
+> <summary>20230511</summary>
+> 
+> ```
+> tfidf
+>   차원축소 
+>   PCA
+>   nmf
+>   
+> ```
+> 
+> </details>  
+>   
+> <details>
+> 
+> <summary>20230512</summary>
+> 
+> ```
+> tf : term frequency
+> idf : inverse document frequency
+> 
+> TfidfTransformer :
+>   먼저 tf를 구함 : 각 row에서 단어가 몇번나오는지
+>   그 이후 idf를 구함 : 각 단어가 전체문서에서 몇개의 문서에서 나왔는지, 이후 log(x/y)+1로 구함
+>   이후 L2 norm, numpy.linalg의 norm을 사용하여 구한 후, tf*idf를 구함.
+>   이 후 norm으로 나누어주면 됨.
+>   
+>   
+> ```
+> 
+> </details>
   
 
 </details>
@@ -1361,56 +1361,55 @@ TfidfTransformer :
 
 <summary>week12</summary>
 <!-- >> -->
-
-<details>
-
-<summary>20230515</summary>
-
-```
-
-
-```
-
-</details>  
   
-
-<details>
-
-<summary>20230516</summary>
-
-```
-analyzer 개선
-
-```
-
-</details>  
-  
-<details>
-
-<summary>20230517</summary>
-
-```
-tfidf복습하기
-: TF * IDF 
-  IDF = log(전체 docu / 특정 단어가 나온 docu) + 1
-  TF*IDF후 L2norm 으로 나눠주기
-  
-```
-
-</details>  
-  
-<details>
-
-<summary>20230519</summary>
-
-```
-nmf : W*H 로 행렬분해
-  non-negative한 원소들로 분해해야함
-  nmf : V를 분해한다고 할 때, V=m*n 이라 하면 W = m*p, H = p*n 으로 분해. 
-  
-```
-
-</details>  
-  
+> <details>
+> 
+> <summary>20230515</summary>
+> 
+> ```
+> 
+> 
+> ```
+> 
+> </details>  
+>   
+> 
+> <details>
+> 
+> <summary>20230516</summary>
+> 
+> ```
+> analyzer 개선
+> 
+> ```
+> 
+> </details>  
+>   
+> <details>
+> 
+> <summary>20230517</summary>
+> 
+> ```
+> tfidf복습하기
+> : TF * IDF 
+>   IDF = log(전체 docu / 특정 단어가 나온 docu) + 1
+>   TF*IDF후 L2norm 으로 나눠주기
+>   
+> ```
+> 
+> </details>  
+>   
+> <details>
+> 
+> <summary>20230519</summary>
+> 
+> ```
+> nmf : W*H 로 행렬분해
+>   non-negative한 원소들로 분해해야함
+>   nmf : V를 분해한다고 할 때, V=m*n 이라 하면 W = m*p, H = p*n 으로 분해. 
+>   
+> ```
+> 
+> </details>
 
 </details>
