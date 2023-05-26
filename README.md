@@ -1450,7 +1450,13 @@ nmf는 비음수행렬을 비음수행렬분해 하는것 이므로 이미지분
 label의 수가 너무많음 -> 데이터 시각화시 가시성이 매우 떨어짐
   그러므로 label에 따라 각 차트에서 추가적인 작업을 해야함.
   
+  dimension reduction : PCA(Principal Component Idea)
+  1 feature : line
+  2 : 2D
+  3 : 3D 
+  ... 그럼 모든 차원의 해당하는 feature가 중요한가? -> PCA아이디어
   
+  PC1 PC2 PC3 ... : 중요도로 결정됨 PC1 : the direction of most varaiance PC2 : 2nd direction
   
 ```
   
