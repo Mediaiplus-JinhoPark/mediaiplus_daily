@@ -1474,17 +1474,9 @@ label의 수가 너무많음 -> 데이터 시각화시 가시성이 매우 떨�
 <summary>20230530</summary>
 
 ```
-nmf는 비음수행렬을 비음수행렬분해 하는것 이므로 이미지분석에 사용가능
-  행렬분해는 유니크한 해를 주지 않음 : 그러므로 minimum error로 decomposition을 찾아야함
-  이때 error나 difference measure에 사용되는 두가지 method가 있는데, KL Divergence와 Euclidean Norm임.
+  월별 임상시험 데이터 추가
+  국가별 데이터 추가
   
-  Euclidean Norm 사용 : alternate least squares algorithm 사용함.
-  F가 W*H로 분해된다고하자. W의 col갯수는 r, H의 row갯수는 r이 됨.
-  F = [f1,f2,f3...] -> W * [h1,h2,h3...]
-  
-  1. W H 랜덤생성
-  2. W * h1 = f1 에서 |W*h1-f1|을 최소화시키는것. 
-  3. 각시행마다 H,W를 번갈아가며 negative term를 0으로 만들어줌.
   
   
   
@@ -1494,19 +1486,10 @@ nmf는 비음수행렬을 비음수행렬분해 하는것 이므로 이미지분
 
 <details>
   
-<summary>20230526</summary>
+<summary>20230531</summary>
 
 ```
-label의 수가 너무많음 -> 데이터 시각화시 가시성이 매우 떨어짐
-  그러므로 label에 따라 각 차트에서 추가적인 작업을 해야함.
-  
-  dimension reduction : PCA(Principal Component Idea)
-  1 feature : line
-  2 : 2D
-  3 : 3D 
-  ... 그럼 모든 차원의 해당하는 feature가 중요한가? -> PCA아이디어
-  
-  PC1 PC2 PC3 ... : 중요도로 결정됨 PC1 : the direction of most varaiance PC2 : 2nd direction
+
   
 ```
   
