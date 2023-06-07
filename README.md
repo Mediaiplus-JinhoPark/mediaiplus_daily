@@ -1519,6 +1519,9 @@ my daily report
   <summary>20230607</summary>
   
   ```
+  ct_identifiaction 테이블을 분석하여 brief_title을 추출하여, 이를 분석할 수 있음.
+  nltk 라이브러리를 사용하여 텍스트를 전처리. -> nltk.download() 해주
+  
   
   ```
   
