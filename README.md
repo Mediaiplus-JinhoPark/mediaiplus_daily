@@ -1515,16 +1515,35 @@ my daily report
 <summary>week15</summary>
 <!-- >> -->
   
-<details>
-  <summary>20230607</summary>
+> <details>
+>   <summary>20230607</summary>
+>   
+>   ```
+>   ct_identifiaction 테이블을 분석하여 brief_title을 추출하여, 이를 분석할 수 있음.
+>   nltk 라이브러리를 사용하여 텍스트를 전처리. -> nltk.download() 해주어야
+>   
+>   
+>   ```
+>   
+> </details>  
   
-  ```
-  ct_identifiaction 테이블을 분석하여 brief_title을 추출하여, 이를 분석할 수 있음.
-  nltk 라이브러리를 사용하여 텍스트를 전처리. -> nltk.download() 해주
+</details>
+
+<details>  
   
+<summary>week16</summary>
+<!-- >> -->
   
-  ```
-  
-</details>  
+> <details>
+>   <summary>20230613</summary>
+>   
+>   ```
+>   nltk에서 표제어추출시, wordnetlemmatizer사용하면됨
+>   이후 lemmatizer를 사용하여 표제어추출 가능.
+>   예시) lemmatizer('rights', 'n') = 'right'
+>   
+>   ```
+>   
+> </details>  
   
 </details>
