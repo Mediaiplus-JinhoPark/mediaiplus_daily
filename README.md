@@ -1545,5 +1545,16 @@ my daily report
 >   ```
 >   
 > </details>  
+>
+> <details>
+>   <summary>20230614</summary>
+>   
+>   ```
+>   데이터의 title에서 유의미한 정보 얻어오기 : top10words_frequency 만들기
+  > 단어별 빈도수를 차트로 만드는것 : 단어가 많을수록 가시성이떨어지므로 단어의 개수는 20개아래로, default = 10으로 설정
+>   
+>   ```
+>   
+> </details>  
   
 </details>
