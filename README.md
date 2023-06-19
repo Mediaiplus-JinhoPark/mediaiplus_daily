@@ -1568,3 +1568,22 @@ my daily report
 >   
 > </details>  
 </details>
+
+<details>  
+  
+<summary>week17</summary>
+<!-- >> -->
+  
+> <details>
+>   <summary>20230619</summary>
+>   
+>   ```
+>   nltk에서 표제어추출시, wordnetlemmatizer사용하면됨
+>   이후 lemmatizer를 사용하여 표제어추출 가능.
+>   예시) lemmatizer('rights', 'n') = 'right'
+>   
+>   ```
+>   
+> </details>  
+
+</details>
