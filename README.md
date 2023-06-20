@@ -1585,5 +1585,14 @@ my daily report
 >   ```
 >   
 > </details>  
-
+>
+> <details>
+>   <summary>20230621</summary>
+>   
+>   ```
+>   최빈단어 분석 commit 완료
+>   
+>   ```
+>   
+> </details> 
 </details>
